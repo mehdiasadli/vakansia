@@ -1,0 +1,28 @@
+{
+  "name": "@vakansia/api",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@orpc/client": "catalog:",
+    "@orpc/openapi": "catalog:",
+    "@orpc/server": "catalog:",
+    "@orpc/zod": "catalog:",
+    "@vakansia/auth": "workspace:*",
+    "@vakansia/db": "workspace:*",
+    "@vakansia/env": "workspace:*",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@vakansia/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}

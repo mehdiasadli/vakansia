@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "scheme": "vakansia",
+    "userInterfaceStyle": "automatic",
+    "orientation": "default",
+    "web": {
+      "bundler": "metro"
+    },
+    "name": "vakansia",
+    "slug": "vakansia",
+    "plugins": ["expo-font"],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}

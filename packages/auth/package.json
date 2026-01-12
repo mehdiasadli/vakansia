@@ -1,0 +1,25 @@
+{
+  "name": "@vakansia/auth",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@better-auth/expo": "catalog:",
+    "@vakansia/db": "workspace:*",
+    "@vakansia/env": "workspace:*",
+    "better-auth": "catalog:",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@vakansia/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}
