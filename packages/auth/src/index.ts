@@ -192,6 +192,8 @@ export const auth = betterAuth({
 	],
 });
 
+export { APIError, BetterAuthError } from "better-auth";
+
 /**
  * TODO: Add these plugins later:
  * Official Plugins:

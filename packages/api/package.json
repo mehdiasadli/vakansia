@@ -20,6 +20,7 @@
     "@vakansia/schemas": "workspace:*",
     "@vakansia/env": "workspace:*",
     "@vakansia/i18n": "workspace:*",
+    "@vakansia/utils": "workspace:*",
     "dotenv": "catalog:",
     "zod": "catalog:"
   },
