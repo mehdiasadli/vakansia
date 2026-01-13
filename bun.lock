@@ -208,6 +208,7 @@
         "@vakansia/env": "workspace:*",
         "@vakansia/i18n": "workspace:*",
         "@vakansia/schemas": "workspace:*",
+        "@vakansia/utils": "workspace:*",
         "dotenv": "catalog:",
         "hono": "catalog:hono",
         "zod": "catalog:",
