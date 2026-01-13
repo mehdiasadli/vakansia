@@ -142,7 +142,8 @@
     "prepare": "husky",
     "check": "biome check --write .",
     "generate": "bun scripts/package-generators/generate.ts",
-    "generate:app": "bun scripts/package-generators/generate-app.ts"
+    "generate:app": "bun scripts/package-generators/generate-app.ts",
+    "generate:schema": "bun run scripts/generators/generate-schema-folder.ts"
   },
   "dependencies": {
     "@vakansia/env": "workspace:*",
