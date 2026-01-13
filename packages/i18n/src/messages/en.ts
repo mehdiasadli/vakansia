@@ -123,10 +123,21 @@ export const en = {
 				email: {
 					label: "Email",
 					placeholder: "Enter your email",
+					validation: {
+						required: "Email is required",
+					},
 				},
 				password: {
 					label: "Password",
 					placeholder: "Enter your password",
+					validation: {
+						required: "Password is required",
+						min: "Password must be at least {min} characters",
+						max: "Password must be at most {max} characters",
+						regex:
+							"Password must contain at least one uppercase letter, one lowercase letter, and one number",
+						nonempty: "Password cannot be empty",
+					},
 				},
 				confirmPassword: {
 					label: "Confirm Password",
@@ -140,6 +151,9 @@ export const en = {
 			fields: {
 				rememberMe: {
 					label: "Remember me",
+					validation: {
+						invalid: "Invalid remember me value",
+					},
 				},
 			},
 			forgotPassword: "Forgot password?",
