@@ -109,6 +109,89 @@ export const en = {
 			},
 		},
 	},
+
+	// ============================================================================
+	// AUTH - Authentication & Authorization
+	// ============================================================================
+	auth: {
+		common: {
+			termsAccept: "I agree to the {terms} and {privacy}",
+			termsLink: "Terms of Service",
+			privacyLink: "Privacy Policy",
+
+			fields: {
+				email: {
+					label: "Email",
+					placeholder: "Enter your email",
+				},
+				password: {
+					label: "Password",
+					placeholder: "Enter your password",
+				},
+				confirmPassword: {
+					label: "Confirm Password",
+					placeholder: "Confirm your password",
+				},
+			},
+		},
+		login: {
+			title: "Sign In",
+			subtitle: "Welcome back! Please sign in to continue",
+			fields: {
+				rememberMe: {
+					label: "Remember me",
+				},
+			},
+			forgotPassword: "Forgot password?",
+			submitButton: "Sign In",
+			noAccount: "Don't have an account?",
+			signUpLink: "Sign up",
+			errors: {
+				invalidCredentials: "Invalid email or password",
+				accountLocked: "Your account has been locked",
+				emailNotVerified: "Please verify your email first",
+			},
+			success: "Signed in successfully",
+		},
+		register: {
+			title: "Create Account",
+			subtitle: "Get started with Vakansia",
+			fields: {
+				name: {
+					label: "Full Name",
+					placeholder: "Enter your full name",
+				},
+				username: {
+					label: "Username",
+					placeholder: "Enter your username",
+				},
+			},
+			submitButton: "Create Account",
+			hasAccount: "Already have an account?",
+			signInLink: "Sign in",
+			errors: {
+				emailTaken: "This email is already registered",
+				usernameTaken: "This username is already registered",
+				weakPassword: "Password is too weak",
+				passwordMismatch: "Passwords do not match",
+			},
+			success: "Account created successfully",
+		},
+		forgotPassword: {
+			title: "Reset Password",
+			subtitle: "Enter your email to receive reset instructions",
+			submitButton: "Send Reset Link",
+			backToLogin: "Back to sign in",
+			success: "Check your email for reset instructions",
+		},
+		resetPassword: {
+			title: "Reset Password",
+			subtitle: "Enter your email to receive reset instructions",
+			submitButton: "Send Reset Link",
+			backToLogin: "Back to sign in",
+			success: "Check your email for reset instructions",
+		},
+	},
 };
 
 export type LocaleKeys = GetLocaleKeys<typeof en>;
