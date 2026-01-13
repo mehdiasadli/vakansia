@@ -8,4 +8,12 @@ export const LoginInputSchema = z
 	})
 	.required();
 
+export const LoginOutputSchema = z.object({
+	token: z.string(),
+	redirect: z.boolean(),
+	url: z.url().optional(),
+	user: UserSchema,
+});
+
 export type LoginInputType = z.infer<typeof LoginInputSchema>;
+export type LoginOutputType = z.infer<typeof LoginOutputSchema>;
