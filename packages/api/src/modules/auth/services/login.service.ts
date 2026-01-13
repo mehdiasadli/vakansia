@@ -25,7 +25,7 @@ export async function loginAuth(
 
 	if (error) {
 		if (error instanceof BetterAuthError) {
-			throw new ORPCError(error.name, {
+			throw new ORPCError("UNAUTHORIZED", {
 				message: error.message,
 				cause: error.cause,
 			});

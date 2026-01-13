@@ -6,7 +6,7 @@ export const LoginInputSchema = z
 	.object({
 		email: UserSchema.shape.email,
 		password: z
-			.string("common.validation.string.invalid")
+			.string({ error: "common.validation.string.invalid" })
 			.nonempty("auth.common.fields.password.validation.required")
 			.min(8, "auth.common.fields.password.validation.min")
 			.max(64, "auth.common.fields.password.validation.max")
