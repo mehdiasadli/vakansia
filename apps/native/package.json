@@ -4,12 +4,12 @@
   "private": true,
   "main": "expo-router/entry",
   "scripts": {
-    "start": "expo start",
-    "dev": "expo start --clear",
-    "android": "expo run:android",
-    "ios": "expo run:ios",
-    "prebuild": "expo prebuild",
-    "web": "expo start --web"
+    "TODO: remove this to use start": "expo start",
+    "TODO: remove this to use dev": "expo start --clear",
+    "TODO: remove this to use android": "expo run:android",
+    "TODO: remove this to use ios": "expo run:ios",
+    "TODO: remove this to use prebuild": "expo prebuild",
+    "TODO: remove this to use web": "expo start --web"
   },
   "dependencies": {
     "@vakansia/auth": "workspace:*",
