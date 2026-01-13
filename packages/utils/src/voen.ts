@@ -45,8 +45,13 @@ export function validateVOEN(
 		};
 	}
 
-	const { territory, serial, checksum, status } =
-		matches.groups as unknown as VOENObject;
+	const [, territory, serial, checksum, status] = matches as unknown as [
+		undefined,
+		string,
+		string,
+		string,
+		VOENStatus,
+	];
 
 	if (territories.length > 0 && !territories.includes(territory)) {
 		return {
