@@ -3,11 +3,11 @@
   "type": "module",
   "main": "src/index.ts",
   "scripts": {
-    "build": "tsdown",
+    "build": "doppler run -- tsdown",
     "check-types": "tsc -b",
     "compile": "bun build --compile --minify --sourcemap --bytecode ./src/index.ts --outfile server",
     "dev": "doppler run -- bun run --hot src/index.ts",
-    "start": "bun run dist/index.js"
+    "start": "doppler run -- bun run dist/index.js"
   },
   "dependencies": {
     "@vakansia/app": "workspace:*",

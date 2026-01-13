@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "doppler run -- next dev --port 3001",
-    "build": "next build",
-    "start": "next start",
+    "build": "doppler run -- next build",
+    "start": "doppler run -- next start",
     "tauri": "tauri",
     "desktop:dev": "tauri dev",
     "desktop:build": "tauri build"
