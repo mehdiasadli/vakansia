@@ -5,14 +5,14 @@
   "description": "manifest.json description",
   "type": "module",
   "scripts": {
-    "dev": "wxt --port 5555",
-    "dev:firefox": "wxt -b firefox",
-    "build": "wxt build",
-    "build:firefox": "wxt build -b firefox",
-    "zip": "wxt zip",
-    "zip:firefox": "wxt zip -b firefox",
-    "compile": "tsc --noEmit",
-    "postinstall": "wxt prepare"
+    "TODO: remove this to use dev": "wxt --port 5555",
+    "TODO: remove this to use dev:firefox": "wxt -b firefox",
+    "TODO: remove this to use build": "wxt build",
+    "TODO: remove this to use build:firefox": "wxt build -b firefox",
+    "TODO: remove this to use zip": "wxt zip",
+    "TODO: remove this to use zip:firefox": "wxt zip -b firefox",
+    "TODO: remove this to use compile": "tsc --noEmit",
+    "TODO: remove this to use postinstall": "wxt prepare"
   },
   "dependencies": {
     "react": "catalog:react",
