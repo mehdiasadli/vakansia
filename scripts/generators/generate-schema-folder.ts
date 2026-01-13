@@ -1,0 +1,185 @@
+#!/usr/bin/env bun
+import { existsSync } from "node:fs";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { join } from "node:path";
+import { parseArgs } from "node:util";
+
+// Utility functions for case conversion
+function toKebabCase(str: string): string {
+	return str
+		.replace(/([a-z])([A-Z])/g, "$1-$2")
+		.replace(/[\s_]+/g, "-")
+		.toLowerCase();
+}
+
+function toPascalCase(str: string): string {
+	return str
+		.split("-")
+		.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+		.join("");
+}
+
+function validateKebabCase(str: string): boolean {
+	return /^[a-z]+(-[a-z]+)*$/.test(str);
+}
+
+// Parse CLI arguments
+const { values, positionals } = parseArgs({
+	args: process.argv.slice(2),
+	options: {
+		"use-model": {
+			type: "boolean",
+			default: true,
+		},
+		methods: {
+			type: "string",
+		},
+	},
+	allowPositionals: true,
+});
+
+const name = positionals[0];
+
+// Validate name
+if (!name) {
+	console.error("❌ Error: Schema name is required");
+	console.error(
+		"Usage: bun run generate:schema <name> --use-model=true --methods=create,update"
+	);
+	process.exit(1);
+}
+
+const kname = toKebabCase(name);
+
+if (!validateKebabCase(kname)) {
+	console.error(
+		`❌ Error: Invalid name "${name}". Must be in kebab-case (e.g., user, job-application)`
+	);
+	process.exit(1);
+}
+
+const pname = toPascalCase(kname);
+const useModel = values["use-model"] ?? true;
+
+// Parse methods
+const defaultMethods = ["create", "update", "find-one", "find-many", "delete"];
+const methodsInput = values.methods;
+let methods: string[] = defaultMethods;
+
+if (methodsInput) {
+	methods = methodsInput.split(",").map((m) => m.trim());
+
+	// Validate each method is kebab-case
+	for (const method of methods) {
+		if (!validateKebabCase(method)) {
+			console.error(
+				`❌ Error: Invalid method "${method}". Must be in kebab-case`
+			);
+			process.exit(1);
+		}
+	}
+}
+
+// Paths
+const schemasDir = join(process.cwd(), "packages/schemas/src/modules");
+const moduleDir = join(schemasDir, kname);
+const modulesIndexPath = join(schemasDir, "index.ts");
+
+// Check if module already exists
+if (existsSync(moduleDir)) {
+	console.error(`❌ Error: Module "${kname}" already exists at ${moduleDir}`);
+	process.exit(1);
+}
+
+console.log(`🚀 Generating schema module: ${kname}`);
+console.log(`   Pascal case: ${pname}`);
+console.log(`   Use model: ${useModel}`);
+console.log(`   Methods: ${methods.join(", ")}`);
+
+// Create module directory
+await mkdir(moduleDir, { recursive: true });
+
+// Generate schema files for each method
+const exports: string[] = [];
+
+for (const method of methods) {
+	const kmethod = method; // Already in kebab-case
+	const pmethod = toPascalCase(kmethod);
+
+	const filename = `${kmethod}.schema.ts`;
+	const filepath = join(moduleDir, filename);
+
+	let content: string;
+
+	if (useModel) {
+		content = `import type { z } from "zod";
+import { ${pname}Schema } from "../../db/schemas";
+
+export const ${pmethod}InputSchema = ${pname}Schema.pick({});
+export const ${pmethod}OutputSchema = ${pname}Schema.pick({});
+
+export type ${pmethod}InputType = z.infer<typeof ${pmethod}InputSchema>;
+export type ${pmethod}OutputType = z.infer<typeof ${pmethod}OutputSchema>;
+`;
+	} else {
+		content = `import { z } from "zod";
+
+export const ${pmethod}InputSchema = z.object({});
+export const ${pmethod}OutputSchema = z.object({});
+
+export type ${pmethod}InputType = z.infer<typeof ${pmethod}InputSchema>;
+export type ${pmethod}OutputType = z.infer<typeof ${pmethod}OutputSchema>;
+`;
+	}
+
+	await writeFile(filepath, content);
+	exports.push(`export * from "./${kmethod}.schema";`);
+
+	console.log(`   ✅ Created ${filename}`);
+}
+
+// Generate barrel file (index.ts)
+const barrelContent = `/** biome-ignore lint/source/organizeImports: no need to sort imports here */
+${exports.join("\n")}
+`;
+
+const barrelPath = join(moduleDir, "index.ts");
+await writeFile(barrelPath, barrelContent);
+console.log("   ✅ Created index.ts");
+
+// Update modules/index.ts
+try {
+	let modulesIndexContent = "";
+
+	if (existsSync(modulesIndexPath)) {
+		modulesIndexContent = await readFile(modulesIndexPath, "utf-8");
+	} else {
+		// Create with biome-ignore comment
+		modulesIndexContent =
+			"/** biome-ignore lint/source/organizeImports: no need to sort imports here */\n";
+	}
+
+	// Check if export already exists
+	const exportStatement = `export * from "./${kname}";`;
+
+	if (modulesIndexContent.includes(exportStatement)) {
+		console.log("   ℹ️  Export already exists in modules/index.ts");
+	} else {
+		// Append new export
+		const newContent = `${modulesIndexContent.trimEnd()}\n${exportStatement}\n`;
+		await writeFile(modulesIndexPath, newContent);
+		console.log("   ✅ Updated modules/index.ts");
+	}
+} catch (error) {
+	console.error(`   ⚠️  Warning: Could not update modules/index.ts: ${error}`);
+}
+
+console.log(`\n✨ Schema module "${kname}" generated successfully!`);
+console.log("\nNext steps:");
+console.log(`  1. Fill in the schema fields in each ${kname}/*.schema.ts file`);
+if (useModel) {
+	console.log(
+		`  2. Make sure ${pname}Schema exists in packages/schemas/src/models`
+	);
+}
+console.log("  3. Run: bun run check to format the files");
