@@ -11,7 +11,8 @@
     "@vakansia/config": "workspace:*"
   },
   "dependencies": {
-    "@vakansia/app": "workspace:*"
+    "@vakansia/app": "workspace:*",
+    "zod": "catalog:"
   },
   "peerDependencies": {
     "typescript": "catalog:"
