@@ -1,0 +1,3 @@
+////
+// GENERATES A BROWSER EXTENSION IN `apps/*` FOLDER WITH WXT
+////

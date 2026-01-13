@@ -1,0 +1,4 @@
+////
+// GENERATES A WEB APPLICATION IN `apps/*` FOLDER WITH NEXT.JS
+////
+

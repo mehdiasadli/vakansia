@@ -1,0 +1,35 @@
+{
+  "name": "@vakansia/next-i18n",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/*.ts",
+    "./request": "./src/request.ts",
+    "./routing": "./src/routing.ts",
+    "./navigation": "./src/navigation.ts"
+  },
+  "devDependencies": {
+    "@vakansia/config": "workspace:*",
+    "@types/react": "catalog:react",
+    "@types/react-dom": "catalog:react"
+  },
+  "dependencies": {
+    "@vakansia/app": "workspace:*",
+    "@vakansia/env": "workspace:*",
+    "@vakansia/schemas": "workspace:*",
+    "@vakansia/i18n": "workspace:*",
+    "next-intl": "catalog:next"
+  },
+  "peerDependencies": {
+    "typescript": "catalog:",
+    "react": "catalog:react",
+    "react-dom": "catalog:react",
+    "next": "catalog:next"
+  },
+  "scripts": {
+    "check": "biome check --write .",
+    "check-types": "turbo check-types"
+  }
+}

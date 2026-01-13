@@ -1,0 +1,14 @@
+model OauthConsent {
+  id          String      @id @default(uuid())
+  clientId    String
+  oauthclient OauthClient @relation(fields: [clientId], references: [clientId], onDelete: Cascade)
+  userId      String?
+  user        User?       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  referenceId String?
+  scopes      String[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  deletedAt   DateTime?
+
+  @@map("oauthConsent")
+}

@@ -2,5 +2,6 @@
   "extends": "@vakansia/config/tsconfig.base.json",
   "compilerOptions": {
     "strictNullChecks": true
-  }
+  },
+  "exclude": ["templates", "templates/**"]
 }

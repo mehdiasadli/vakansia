@@ -16,17 +16,18 @@
     "db:studio": "prisma studio"
   },
   "dependencies": {
-    "@prisma/adapter-pg": "^7.1.0",
-    "@prisma/client": "catalog:",
+    "@prisma/adapter-pg": "catalog:db",
+    "@prisma/client": "catalog:db",
     "@vakansia/env": "workspace:*",
     "dotenv": "catalog:",
-    "pg": "^8.16.3",
+    "pg": "catalog:db",
+    "prisma-zod-generator": "^2.1.2",
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@types/pg": "^8.15.6",
+    "@types/pg": "catalog:db",
     "@vakansia/config": "workspace:*",
-    "prisma": "^7.1.0",
+    "prisma": "catalog:db",
     "typescript": "catalog:"
   }
 }

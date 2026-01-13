@@ -1,0 +1,21 @@
+model OauthAccessToken {
+  id                String             @id @default(uuid())
+  token             String?
+  clientId          String
+  oauthclient       OauthClient        @relation(fields: [clientId], references: [clientId], onDelete: Cascade)
+  sessionId         String?
+  session           Session?           @relation(fields: [sessionId], references: [id], onDelete: SetNull)
+  userId            String?
+  user              User?              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  referenceId       String?
+  refreshId         String?
+  oauthrefreshtoken OauthRefreshToken? @relation(fields: [refreshId], references: [id], onDelete: Cascade)
+  expiresAt         DateTime?
+  scopes            String[]
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  deletedAt         DateTime?
+
+  @@unique([token])
+  @@map("oauthAccessToken")
+}

@@ -9,17 +9,23 @@
       "default": "./src/*.ts"
     }
   },
-  "scripts": {},
+  "scripts": {
+    "generate": "dotenv -e ../../apps/server/.env -- bun x @better-auth/cli generate --config=./src/index.ts --output=../db/prisma/schema/auth.preview.prisma"
+  },
   "dependencies": {
-    "@better-auth/expo": "catalog:",
+    "@vakansia/app": "workspace:*",
+    "@better-auth/expo": "catalog:auth",
+    "@better-auth/passkey": "catalog:auth",
+    "@better-auth/oauth-provider": "catalog:auth",
     "@vakansia/db": "workspace:*",
     "@vakansia/env": "workspace:*",
-    "better-auth": "catalog:",
+    "better-auth": "catalog:auth",
     "dotenv": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
     "@vakansia/config": "workspace:*",
+    "dotenv-cli": "^11.0.0",
     "typescript": "catalog:"
   }
 }

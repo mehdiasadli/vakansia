@@ -1,0 +1,16 @@
+{
+  "name": "@vakansia/app",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/*.ts"
+  },
+  "devDependencies": {
+    "@vakansia/config": "workspace:*"
+  },
+  "peerDependencies": {
+    "typescript": "catalog:"
+  }
+}

@@ -10,23 +10,23 @@
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
-    "fumadocs-core": "16.4.6",
-    "fumadocs-mdx": "14.2.4",
-    "fumadocs-ui": "16.4.6",
-    "lucide-react": "^0.562.0",
-    "next": "16.1.1",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "tailwind-merge": "^3.4.0"
+    "fumadocs-core": "catalog:fumadocs",
+    "fumadocs-mdx": "catalog:fumadocs",
+    "fumadocs-ui": "catalog:fumadocs",
+    "lucide-react": "catalog:components",
+    "next": "catalog:next",
+    "react": "catalog:react",
+    "react-dom": "catalog:react",
+    "tailwind-merge": "catalog:styles"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.18",
-    "@types/mdx": "^2.0.13",
-    "@types/node": "^25.0.3",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.18",
-    "typescript": "^5.9.3"
+    "@tailwindcss/postcss": "catalog:styles",
+    "@types/mdx": "catalog:fumadocs",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:react",
+    "@types/react-dom": "catalog:react",
+    "postcss": "catalog:styles",
+    "tailwindcss": "catalog:styles",
+    "typescript": "catalog:"
   }
 }

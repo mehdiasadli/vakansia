@@ -1,9 +1,14 @@
 import "@vakansia/env/web";
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
-  typedRoutes: true,
-  reactCompiler: true,
+	typedRoutes: true,
+	reactCompiler: true,
 };
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin(
+	"../../packages/next-i18n/src/request.ts"
+);
+
+export default withNextIntl(nextConfig);

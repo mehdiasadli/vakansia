@@ -1,0 +1,50 @@
+enum UserRole {
+  user // default role
+  moderator // moderator of the platform
+  admin // admin of the platform
+  owner // owner of the platform
+}
+
+model User {
+  /// @zod.uuid("USER_ID_INVALID")
+  id                  String              @id @default(uuid())
+  /// @zod.min(1, "USER_NAME_MIN_LENGTH").max(50, "USER_NAME_MAX_LENGTH")
+  name                String
+  /// @zod.email("USER_EMAIL_INVALID")
+  email               String
+  /// @zod.boolean("USER_EMAIL_VERIFIED_INVALID")
+  emailVerified       Boolean             @default(false)
+  /// @zod.url("USER_IMAGE_INVALID")
+  image               String?
+  /// @zod.boolean("USER_TWO_FACTOR_ENABLED_INVALID")
+  twoFactorEnabled    Boolean?            @default(false)
+  /// @zod.string("USER_PHONE_NUMBER_INVALID")
+  phoneNumber         String?
+  /// @zod.boolean("USER_PHONE_NUMBER_VERIFIED_INVALID")
+  phoneNumberVerified Boolean?
+  role                UserRole            @default(user)
+  /// @zod.boolean("USER_BANNED_INVALID")
+  banned              Boolean?            @default(false)
+  banReason           String?
+  banExpires          DateTime?
+  username            String
+  sessions            Session[]
+  accounts            Account[]
+  twofactors          TwoFactor[]
+  passkeys            Passkey[]
+  apikeys             Apikey[]
+  members             Member[]
+  invitations         Invitation[]
+  oauthclients        OauthClient[]
+  oauthrefreshtokens  OauthRefreshToken[]
+  oauthaccesstokens   OauthAccessToken[]
+  oauthconsents       OauthConsent[]
+  createdAt           DateTime            @default(now())
+  updatedAt           DateTime            @updatedAt
+  deletedAt           DateTime?
+
+  @@unique([email])
+  @@unique([phoneNumber])
+  @@unique([username])
+  @@map("user")
+}

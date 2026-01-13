@@ -9,14 +9,15 @@
       "default": "./src/*.ts"
     }
   },
-  "scripts": {},
   "dependencies": {
-    "@orpc/client": "catalog:",
-    "@orpc/openapi": "catalog:",
-    "@orpc/server": "catalog:",
-    "@orpc/zod": "catalog:",
+    "hono": "catalog:hono",
+    "@orpc/client": "catalog:orpc",
+    "@orpc/openapi": "catalog:orpc",
+    "@orpc/server": "catalog:orpc",
+    "@orpc/zod": "catalog:orpc",
     "@vakansia/auth": "workspace:*",
     "@vakansia/db": "workspace:*",
+    "@vakansia/schemas": "workspace:*",
     "@vakansia/env": "workspace:*",
     "dotenv": "catalog:",
     "zod": "catalog:"

@@ -1,0 +1,11 @@
+model Jwks {
+  id         String    @id @default(uuid())
+  publicKey  String
+  privateKey String
+  expiresAt  DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  deletedAt  DateTime?
+
+  @@map("jwks")
+}

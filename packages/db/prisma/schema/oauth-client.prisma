@@ -1,0 +1,38 @@
+model OauthClient {
+  id                      String              @id @default(uuid())
+  clientId                String
+  clientSecret            String?
+  disabled                Boolean             @default(false)
+  skipConsent             Boolean?
+  enableEndSession        Boolean?
+  scopes                  String[]
+  userId                  String?
+  user                    User?               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name                    String?
+  uri                     String?
+  icon                    String?
+  contacts                String[]
+  tos                     String?
+  policy                  String?
+  softwareId              String?
+  softwareVersion         String?
+  softwareStatement       String?
+  redirectUris            String[]
+  postLogoutRedirectUris  String[]
+  tokenEndpointAuthMethod String?
+  grantTypes              String[]
+  responseTypes           String[]
+  public                  Boolean?
+  type                    String?
+  referenceId             String?
+  metadata                Json?
+  oauthrefreshtokens      OauthRefreshToken[]
+  oauthaccesstokens       OauthAccessToken[]
+  oauthconsents           OauthConsent[]
+  createdAt               DateTime            @default(now())
+  updatedAt               DateTime            @updatedAt
+  deletedAt               DateTime?
+
+  @@unique([clientId])
+  @@map("oauthClient")
+}

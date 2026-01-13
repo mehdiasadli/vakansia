@@ -8,7 +8,6 @@
   "files": {
     "ignoreUnknown": false,
     "includes": [
-      "**",
       "!**/.next",
       "!**/dist",
       "!**/.turbo",
@@ -25,7 +24,9 @@
       "!**/.svelte-kit",
       "!**/wrangler.jsonc",
       "!**/.source",
-      "!**/convex/_generated"
+      "!**/convex/_generated",
+      "!**/schemas/src/db",
+      "!**/templates"
     ]
   },
   "formatter": {
@@ -55,6 +56,18 @@
           }
         }
       },
+      "suspicious": {
+        "noShadowRestrictedNames": "off"
+      },
+      "performance": {
+        "noBarrelFile": "off",
+        "noNamespaceImport": "off",
+        "useTopLevelRegex": "off",
+        "noImgElement": "off"
+      },
+      "a11y": {
+        "noLabelWithoutControl": "off"
+      },
       "style": {
         "noParameterAssign": "error",
         "useAsConstAssertion": "error",
@@ -65,7 +78,11 @@
         "noUnusedTemplateLiteral": "error",
         "useNumberNamespace": "error",
         "noInferrableTypes": "error",
-        "noUselessElse": "error"
+        "noUselessElse": "error",
+        "noNestedTernary": "off",
+        "useBlockStatements": "off",
+        "useUnifiedTypeSignatures": "off",
+        "useFilenamingConvention": "off"
       }
     }
   },
@@ -79,5 +96,9 @@
       "tailwindDirectives": true
     }
   },
-  "extends": ["ultracite/biome/core", "ultracite/biome/next", "ultracite/biome/react"]
+  "extends": [
+    "ultracite/biome/core",
+    "ultracite/biome/next",
+    "ultracite/biome/react"
+  ]
 }
