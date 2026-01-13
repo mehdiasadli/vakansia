@@ -115,20 +115,20 @@ for (const method of methods) {
 		content = `import type { z } from "zod";
 import { ${pname}Schema } from "../../db/schemas";
 
-export const ${pmethod}InputSchema = ${pname}Schema.pick({});
-export const ${pmethod}OutputSchema = ${pname}Schema.pick({});
+export const ${pmethod}${pname}InputSchema = ${pname}${pname}Schema.pick({});
+export const ${pmethod}${pname}OutputSchema = ${pname}${pname}Schema.pick({});
 
-export type ${pmethod}InputType = z.infer<typeof ${pmethod}InputSchema>;
-export type ${pmethod}OutputType = z.infer<typeof ${pmethod}OutputSchema>;
+export type ${pmethod}${pname}InputType = z.infer<typeof ${pmethod}${pname}InputSchema>;
+export type ${pmethod}${pname}OutputType = z.infer<typeof ${pmethod}${pname}OutputSchema>;
 `;
 	} else {
 		content = `import { z } from "zod";
 
-export const ${pmethod}InputSchema = z.object({});
-export const ${pmethod}OutputSchema = z.object({});
+export const ${pmethod}${pname}InputSchema = z.object({});
+export const ${pmethod}${pname}OutputSchema = z.object({});
 
-export type ${pmethod}InputType = z.infer<typeof ${pmethod}InputSchema>;
-export type ${pmethod}OutputType = z.infer<typeof ${pmethod}OutputSchema>;
+export type ${pmethod}${pname}InputType = z.infer<typeof ${pmethod}${pname}InputSchema>;
+export type ${pmethod}${pname}OutputType = z.infer<typeof ${pmethod}${pname}OutputSchema>;
 `;
 	}
 

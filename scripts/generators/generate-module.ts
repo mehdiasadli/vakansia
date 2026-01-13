@@ -1,0 +1,262 @@
+#!/usr/bin/env bun
+import { existsSync } from "node:fs";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { join } from "node:path";
+import { parseArgs } from "node:util";
+
+// Utility functions for case conversion
+function toKebabCase(str: string): string {
+	return str
+		.replace(/([a-z])([A-Z])/g, "$1-$2")
+		.replace(/[\s_]+/g, "-")
+		.toLowerCase();
+}
+
+function toPascalCase(str: string): string {
+	return str
+		.split("-")
+		.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+		.join("");
+}
+
+function toCamelCase(str: string): string {
+	const pascal = toPascalCase(str);
+	return pascal.charAt(0).toLowerCase() + pascal.slice(1);
+}
+
+function validateKebabCase(str: string): boolean {
+	return /^[a-z]+(-[a-z]+)*$/.test(str);
+}
+
+// Parse CLI arguments
+const { values, positionals } = parseArgs({
+	args: process.argv.slice(2),
+	options: {
+		methods: {
+			type: "string",
+		},
+	},
+	allowPositionals: true,
+});
+
+const name = positionals[0];
+
+// Validate name
+if (!name) {
+	console.error("❌ Error: Module name is required");
+	console.error(
+		"Usage: bun run generate:module <name> --methods=create,update"
+	);
+	process.exit(1);
+}
+
+const kname = toKebabCase(name);
+
+if (!validateKebabCase(kname)) {
+	console.error(
+		`❌ Error: Invalid name "${name}". Must be in kebab-case (e.g., user, job-application)`
+	);
+	process.exit(1);
+}
+
+const pname = toPascalCase(kname);
+const cname = toCamelCase(kname);
+
+// Parse methods
+const defaultMethods = ["create", "update", "find-one", "find-many", "delete"];
+const methodsInput = values.methods;
+let methods: string[] = defaultMethods;
+
+if (methodsInput) {
+	methods = methodsInput.split(",").map((m) => m.trim());
+
+	// Validate each method is kebab-case
+	for (const method of methods) {
+		if (!validateKebabCase(method)) {
+			console.error(
+				`❌ Error: Invalid method "${method}". Must be in kebab-case`
+			);
+			process.exit(1);
+		}
+	}
+}
+
+// Paths
+const apiModulesDir = join(process.cwd(), "packages/api/src/modules");
+const moduleDir = join(apiModulesDir, kname);
+const servicesDir = join(moduleDir, "services");
+const routerFilePath = join(process.cwd(), "packages/api/src/router.ts");
+
+// Check if module already exists
+if (existsSync(moduleDir)) {
+	console.error(`❌ Error: Module "${kname}" already exists at ${moduleDir}`);
+	process.exit(1);
+}
+
+console.log(`🚀 Generating API module: ${kname}`);
+console.log(`   Pascal case: ${pname}`);
+console.log(`   Camel case: ${cname}`);
+console.log(`   Methods: ${methods.join(", ")}`);
+
+// Create module directories
+await mkdir(servicesDir, { recursive: true });
+
+// Generate utils.ts
+const utilsContent = "export {};\n";
+const utilsPath = join(moduleDir, "utils.ts");
+await writeFile(utilsPath, utilsContent);
+console.log("   ✅ Created utils.ts");
+
+// Generate service files
+const serviceExports: string[] = [];
+const serviceImports: string[] = [];
+const routerMethods: string[] = [];
+
+for (const method of methods) {
+	const kmethod = method;
+	const pmethod = toPascalCase(kmethod);
+	const cmethod = toCamelCase(kmethod);
+
+	const filename = `${kmethod}.service.ts`;
+	const filepath = join(servicesDir, filename);
+
+	const serviceContent = `import type { ${pmethod}${pname}InputType, ${pmethod}${pname}OutputType } from "@vakansia/schemas";
+
+export async function ${cmethod}${pname}(input: ${pmethod}${pname}InputType): Promise<${pmethod}${pname}OutputType> {
+	console.log(\`\${${cmethod}${pname}.name} service\`);
+	console.log("Input:", input);
+
+	return {} as unknown as ${pmethod}${pname}OutputType;
+}
+`;
+
+	await writeFile(filepath, serviceContent);
+	serviceExports.push(`export * from "./${kmethod}.service";`);
+	serviceImports.push(`${cmethod}${pname}`);
+
+	routerMethods.push(`\t${cmethod}: publicProcedure
+\t\t.input(${pmethod}${pname}InputSchema)
+\t\t.output(${pmethod}${pname}OutputSchema)
+\t\t.handler(async ({ input }) => await ${cmethod}${pname}(input)),`);
+
+	console.log(`   ✅ Created services/${filename}`);
+}
+
+// Generate services barrel file
+const servicesBarrelContent = `/** biome-ignore lint/source/organizeImports: no need to sort imports here */
+${serviceExports.join("\n")}
+`;
+
+const servicesBarrelPath = join(servicesDir, "index.ts");
+await writeFile(servicesBarrelPath, servicesBarrelContent);
+console.log("   ✅ Created services/index.ts");
+
+// Generate router.ts
+const schemaImports = methods
+	.map((method) => {
+		const pmethod = toPascalCase(method);
+		return `\t${pmethod}${pname}InputSchema,\n\t${pmethod}${pname}OutputSchema`;
+	})
+	.join(",\n");
+
+const routerContent = `import {
+${schemaImports}
+} from "@vakansia/schemas";
+import { ${serviceImports.join(", ")} } from "./services";
+import { publicProcedure } from "../../procedures";
+
+export const ${cname}Router = {
+${routerMethods.join("\n")}
+};
+`;
+
+const routerPath = join(moduleDir, `${kname}.router.ts`);
+await writeFile(routerPath, routerContent);
+console.log(`   ✅ Created ${kname}.router.ts`);
+
+// Update main router.ts
+try {
+	let routerFileContent = "";
+
+	if (existsSync(routerFilePath)) {
+		routerFileContent = await readFile(routerFilePath, "utf-8");
+	} else {
+		// Create initial router file
+		routerFileContent = `import type { RouterClient } from "@orpc/server";
+
+export const appRouter = {
+};
+
+export type AppRouter = typeof appRouter;
+export type AppRouterClient = RouterClient<typeof appRouter>;
+`;
+	}
+
+	// Add import
+	const importStatement = `import { ${cname}Router } from "./modules/${kname}/${kname}.router";`;
+
+	// Check if import already exists
+	if (!routerFileContent.includes(importStatement)) {
+		// Find the last import line
+		const lines = routerFileContent.split("\n");
+		const lastImportIndex = lines.findLastIndex((line) =>
+			line.startsWith("import")
+		);
+
+		if (lastImportIndex !== -1) {
+			lines.splice(lastImportIndex + 1, 0, importStatement);
+		} else {
+			// No imports found, add at the beginning
+			lines.unshift(importStatement);
+		}
+
+		routerFileContent = lines.join("\n");
+	}
+
+	// Add router to appRouter object
+	const routerProperty = `\t${cname}: ${cname}Router,`;
+
+	if (!routerFileContent.includes(routerProperty)) {
+		// Find appRouter object and add the property
+		const appRouterMatch = routerFileContent.match(
+			/export const appRouter = \{([^}]*)\}/s
+		);
+
+		if (appRouterMatch) {
+			const currentContent = appRouterMatch[1];
+
+			if (!currentContent) {
+				console.error("❌ Error: appRouter object not found in router.ts");
+				process.exit(1);
+			}
+
+			const newContent = currentContent.trim()
+				? `${currentContent.trimEnd()}\n${routerProperty}\n`
+				: `\n${routerProperty}\n`;
+
+			routerFileContent = routerFileContent.replace(
+				/export const appRouter = \{([^}]*)\}/s,
+				`export const appRouter = {${newContent}}`
+			);
+		}
+	}
+
+	await writeFile(routerFilePath, routerFileContent);
+	console.log("   ✅ Updated router.ts");
+} catch (error) {
+	console.error(`   ⚠️  Warning: Could not update router.ts: ${error}`);
+}
+
+console.log(`\n✨ API module "${kname}" generated successfully!`);
+console.log("\nNext steps:");
+console.log(
+	`  1. Implement the service logic in packages/api/src/modules/${kname}/services/*.service.ts`
+);
+console.log(
+	`  2. Fill in the input/output schemas in packages/schemas/src/modules/${kname}/*.schema.ts`
+);
+console.log(
+	"  3. Update procedure type if needed (publicProcedure, protectedProcedure, etc.)"
+);
+console.log("  4. Run: bun run check to format the files");
+console.log("  5. Test your endpoints");
