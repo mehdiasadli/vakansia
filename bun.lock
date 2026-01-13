@@ -292,6 +292,7 @@
       "dependencies": {
         "@t3-oss/env-core": "catalog:config",
         "@t3-oss/env-nextjs": "catalog:config",
+        "@vakansia/lib": "workspace:*",
         "dotenv": "catalog:",
         "zod": "catalog:",
       },
@@ -338,6 +339,7 @@
       "version": "0.0.0",
       "dependencies": {
         "@vakansia/app": "workspace:*",
+        "zod": "catalog:",
       },
       "devDependencies": {
         "@vakansia/config": "workspace:*",
