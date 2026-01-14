@@ -36,6 +36,10 @@ jobs:
           path: ~/.bun/install/cache
           key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
 
+      - name: Build
+        run: bun run build
+        timeout-minutes: 5
+
       - name: Type check
         run: bun run check-types
         timeout-minutes: 5
@@ -43,7 +47,3 @@ jobs:
       - name: Lint
         run: bun run check
         timeout-minutes: 3
-
-      - name: Build
-        run: bun run build
-        timeout-minutes: 5
