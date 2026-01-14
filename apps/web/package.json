@@ -9,7 +9,7 @@
 		"tauri": "tauri",
 		"desktop:dev": "tauri dev",
 		"desktop:build": "tauri build",
-		"check-types": "tsc -b",
+		"check:types": "tsc -b",
 		"check": "biome check --write .",
 		"check:ci": "biome ci .",
 		"typegen": "doppler run -- next typegen"

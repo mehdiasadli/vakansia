@@ -41,7 +41,8 @@ const defaultPeerDependencies = {
 
 const defaultScripts = {
 	check: "biome check --write .",
-	"check-types": "turbo check-types",
+	"check:ci": "biome ci .",
+	"check:types": "tsc -b",
 };
 
 export async function generatePackageJson(options: GeneratePackageJsonOptions) {
