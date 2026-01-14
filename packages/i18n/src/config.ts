@@ -2,7 +2,7 @@
 // I18N CONFIG
 ////
 
-export const LOCALES = ["en", "az"] as const;
+export const LOCALES = ["en"] as const;
 export const FALLBACK_LOCALE = "en";
 
 export type Locale = (typeof LOCALES)[number];
@@ -29,16 +29,17 @@ export const LANGUAGES: Record<Locale, Language> = {
 		countryCode2: "GB",
 		countryCode3: "GBR",
 	},
-	az: {
-		name: "Azerbaijani",
-		nativeName: "Azərbaycanca",
-		code: "az",
-		direction: "ltr",
-		flag: "🇦🇿",
-		isFallback: false,
-		countryCode2: "AZ",
-		countryCode3: "AZE",
-	},
+	// TODO: Add Azerbaijani language support
+	// az: {
+	// 	name: "Azerbaijani",
+	// 	nativeName: "Azərbaycanca",
+	// 	code: "az",
+	// 	direction: "ltr",
+	// 	flag: "🇦🇿",
+	// 	isFallback: false,
+	// 	countryCode2: "AZ",
+	// 	countryCode3: "AZE",
+	// },
 };
 
 export const HIDE_LOCALE_PREFIX = "never";
