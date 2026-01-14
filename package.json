@@ -141,6 +141,7 @@
     "db:migrate": "turbo -F @vakansia/db db:migrate",
     "prepare": "husky",
     "check": "biome check --write .",
+    "typegen": "turbo typegen",
     "generate": "bun scripts/package-generators/generate.ts",
     "generate:schema": "bun run scripts/generators/generate-schema-folder.ts",
     "generate:module": "bun run scripts/generators/generate-module.ts",

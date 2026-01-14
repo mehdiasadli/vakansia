@@ -14,12 +14,21 @@
       "dependsOn": ["^lint"]
     },
     "check-types": {
-      "dependsOn": ["^check-types", "db:generate"],
+      "dependsOn": ["^check-types", "db:generate", "typegen"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"]
     },
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "typegen": {
+      "cache": false,
+      "dependsOn": ["^typegen"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env*",
+        "apps/web/.next/types/routres.d.ts"
+      ]
     },
     "db:push": {
       "cache": false
