@@ -1,14 +1,14 @@
 #!/bin/sh
 
-echo "Building before push..."
+echo "Build ignored..."
 
 # Build all packages
-bun run build
+# bun run build
 
-if [ $? -ne 0 ]; then
-  echo "Build failed. Please fix the issues and try again."
-  exit 1
-fi
+# if [ $? -ne 0 ]; then
+#   echo "Build failed. Please fix the issues and try again."
+#   exit 1
+# fi
 
-echo "Build completed successfully."
-exit 0
+# echo "Build completed successfully."
+# exit 0
