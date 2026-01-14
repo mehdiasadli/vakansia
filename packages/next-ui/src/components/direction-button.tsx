@@ -63,7 +63,7 @@ export function DirectionButton({
 				className={cn(
 					"pointer-events-none absolute inset-y-0 flex w-9 items-center justify-center bg-primary-foreground/15",
 					iconContainerClassName,
-					positionValueClassName
+					positionValueClassName,
 				)}
 			>
 				{icon}

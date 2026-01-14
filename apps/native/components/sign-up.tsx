@@ -47,7 +47,7 @@ function signUpHandler({
 			onFinished() {
 				setIsLoading(false);
 			},
-		}
+		},
 	);
 }
 

@@ -44,7 +44,7 @@ const name = positionals[0];
 if (!name) {
 	console.error("❌ Error: Schema name is required");
 	console.error(
-		"Usage: bun run generate:schema <name> --use-model=true --methods=create,update"
+		"Usage: bun run generate:schema <name> --use-model=true --methods=create,update",
 	);
 	process.exit(1);
 }
@@ -53,7 +53,7 @@ const kname = toKebabCase(name);
 
 if (!validateKebabCase(kname)) {
 	console.error(
-		`❌ Error: Invalid name "${name}". Must be in kebab-case (e.g., user, job-application)`
+		`❌ Error: Invalid name "${name}". Must be in kebab-case (e.g., user, job-application)`,
 	);
 	process.exit(1);
 }
@@ -73,7 +73,7 @@ if (methodsInput) {
 	for (const method of methods) {
 		if (!validateKebabCase(method)) {
 			console.error(
-				`❌ Error: Invalid method "${method}". Must be in kebab-case`
+				`❌ Error: Invalid method "${method}". Must be in kebab-case`,
 			);
 			process.exit(1);
 		}
@@ -179,7 +179,7 @@ console.log("\nNext steps:");
 console.log(`  1. Fill in the schema fields in each ${kname}/*.schema.ts file`);
 if (useModel) {
 	console.log(
-		`  2. Make sure ${pname}Schema exists in packages/schemas/src/models`
+		`  2. Make sure ${pname}Schema exists in packages/schemas/src/models`,
 	);
 }
 console.log("  3. Run: bun run check to format the files");

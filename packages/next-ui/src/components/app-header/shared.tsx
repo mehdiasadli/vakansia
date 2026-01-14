@@ -44,7 +44,7 @@ export function LinkItem({
 			<div
 				className={cn(
 					"flex aspect-square size-12 items-center justify-center rounded-md border bg-card text-sm shadow-sm",
-					iconContainerClassName
+					iconContainerClassName,
 				)}
 			>
 				{icon}
@@ -52,14 +52,14 @@ export function LinkItem({
 			<div
 				className={cn(
 					"flex flex-col items-start justify-center",
-					contentContainerClassName
+					contentContainerClassName,
 				)}
 			>
 				<span className={cn("font-medium", labelClassName)}>{label}</span>
 				<span
 					className={cn(
 						"line-clamp-2 text-muted-foreground text-xs",
-						descriptionClassName
+						descriptionClassName,
 					)}
 				>
 					{description}

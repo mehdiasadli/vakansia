@@ -26,8 +26,9 @@
 			"!**/wrangler.jsonc",
 			"!**/.source",
 			"!**/convex/_generated",
-			"!**/schemas/src/db",
-			"!**/templates"
+			"!**/templates",
+			"!**/packages/schemas/src/db/schemas.ts",
+			"!**/packages/db/prisma/generated"
 		]
 	},
 	"formatter": {

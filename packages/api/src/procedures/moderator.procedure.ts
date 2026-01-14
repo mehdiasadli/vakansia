@@ -35,5 +35,5 @@ export const moderatorProcedure = protectedProcedure.use(
 				session: context.session,
 			},
 		});
-	}
+	},
 );

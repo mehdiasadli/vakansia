@@ -53,7 +53,7 @@ export const auth = betterAuth({
 					if (isSuccessful) {
 						console.log("=== === === === === ===");
 						console.log(
-							`Sending verification email to ${user.email} for user: ${user.name}`
+							`Sending verification email to ${user.email} for user: ${user.name}`,
 						);
 						console.log(`URL: ${url}`);
 						console.log(`Token: ${token}`);
@@ -64,8 +64,8 @@ export const auth = betterAuth({
 						console.log("=== === === === === ===");
 						reject(
 							new Error(
-								`Failed to send verification email to ${user.email} for user: ${user.name}`
-							)
+								`Failed to send verification email to ${user.email} for user: ${user.name}`,
+							),
 						);
 						console.log("=== === === === === ===");
 					}
@@ -142,7 +142,7 @@ export const auth = betterAuth({
 					setTimeout(() => {
 						if (isSuccessful) {
 							console.log(
-								`Sending invitation email to ${email} for user: ${inviter.user.name} (${inviter.role})`
+								`Sending invitation email to ${email} for user: ${inviter.user.name} (${inviter.role})`,
 							);
 							console.log(`Invitation ID: ${id}`);
 							console.log(`Invitation: ${JSON.stringify(invitation)}`);
@@ -153,8 +153,8 @@ export const auth = betterAuth({
 						} else {
 							reject(
 								new Error(
-									`Failed to send invitation email to ${email} for user: ${inviter.user.name} (${inviter.role})`
-								)
+									`Failed to send invitation email to ${email} for user: ${inviter.user.name} (${inviter.role})`,
+								),
 							);
 						}
 					}, 1000);

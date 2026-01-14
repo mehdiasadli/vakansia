@@ -86,7 +86,7 @@ export function UserAvatar({
 				<span
 					className={cn(
 						"absolute -end-1 -top-1 size-3 rounded-full border-2 border-background bg-emerald-500",
-						indicatorClassName
+						indicatorClassName,
 					)}
 					{...indicatorProps}
 				>

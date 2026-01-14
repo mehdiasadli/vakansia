@@ -13,7 +13,7 @@ interface AppThemeContextType {
 }
 
 const AppThemeContext = createContext<AppThemeContextType | undefined>(
-	undefined
+	undefined,
 );
 
 export const AppThemeProvider = ({
@@ -47,7 +47,7 @@ export const AppThemeProvider = ({
 			setTheme,
 			toggleTheme,
 		}),
-		[theme, isLight, isDark, setTheme, toggleTheme]
+		[theme, isLight, isDark, setTheme, toggleTheme],
 	);
 
 	return (

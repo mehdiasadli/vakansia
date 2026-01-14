@@ -1,54 +1,55 @@
 {
-  "name": "@vakansia/next-ui",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "exports": {
-    ".": "./src/index.ts",
-    "./*": "./src/*.ts",
-    "./index.css": "./src/styles/index.css",
-    "./utils": "./src/lib/utils.ts",
-    "./components/*": "./src/components/*.tsx",
-    "./components/ui/*": null,
-    "./ui/*": "./src/components/ui/*.tsx",
-    "./components/app-sidebar/*": null,
-    "./app-sidebar/*": "./src/components/app-sidebar/*.tsx",
-    "./components/app-header/*": null,
-    "./app-header/*": "./src/components/app-header/*.tsx"
-  },
-  "devDependencies": {
-    "@vakansia/config": "workspace:*",
-    "@types/react": "catalog:react",
-    "@types/react-dom": "catalog:react",
-    "@tailwindcss/postcss": "catalog:styles",
-    "tailwindcss": "catalog:styles"
-  },
-  "dependencies": {
-    "@base-ui/react": "^1.0.0",
-    "@radix-ui/react-navigation-menu": "^1.2.14",
-    "@vakansia/app": "workspace:*",
-    "@vakansia/env": "workspace:*",
-    "@vakansia/hooks": "workspace:*",
-    "@vakansia/next-i18n": "workspace:*",
-    "@vakansia/schemas": "workspace:*",
-    "babel-plugin-react-compiler": "catalog:react",
-    "class-variance-authority": "catalog:styles",
-    "clsx": "catalog:styles",
-    "lucide-react": "catalog:components",
-    "next-themes": "catalog:next",
-    "shadcn": "catalog:components",
-    "sonner": "catalog:components",
-    "tailwind-merge": "catalog:styles",
-    "tailwindcss-corner-shape": "^1.4.6",
-    "tw-animate-css": "catalog:styles"
-  },
-  "peerDependencies": {
-    "typescript": "catalog:",
-    "react": "catalog:react",
-    "react-dom": "catalog:react"
-  },
-  "scripts": {
-    "check": "biome check --write .",
-    "check-types": "tsc -b"
-  }
+	"name": "@vakansia/next-ui",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts",
+		"./*": "./src/*.ts",
+		"./index.css": "./src/styles/index.css",
+		"./utils": "./src/lib/utils.ts",
+		"./components/*": "./src/components/*.tsx",
+		"./components/ui/*": null,
+		"./ui/*": "./src/components/ui/*.tsx",
+		"./components/app-sidebar/*": null,
+		"./app-sidebar/*": "./src/components/app-sidebar/*.tsx",
+		"./components/app-header/*": null,
+		"./app-header/*": "./src/components/app-header/*.tsx"
+	},
+	"devDependencies": {
+		"@vakansia/config": "workspace:*",
+		"@types/react": "catalog:react",
+		"@types/react-dom": "catalog:react",
+		"@tailwindcss/postcss": "catalog:styles",
+		"tailwindcss": "catalog:styles"
+	},
+	"dependencies": {
+		"@base-ui/react": "^1.0.0",
+		"@radix-ui/react-navigation-menu": "^1.2.14",
+		"@vakansia/app": "workspace:*",
+		"@vakansia/env": "workspace:*",
+		"@vakansia/hooks": "workspace:*",
+		"@vakansia/next-i18n": "workspace:*",
+		"@vakansia/schemas": "workspace:*",
+		"babel-plugin-react-compiler": "catalog:react",
+		"class-variance-authority": "catalog:styles",
+		"clsx": "catalog:styles",
+		"lucide-react": "catalog:components",
+		"next-themes": "catalog:next",
+		"shadcn": "catalog:components",
+		"sonner": "catalog:components",
+		"tailwind-merge": "catalog:styles",
+		"tailwindcss-corner-shape": "^1.4.6",
+		"tw-animate-css": "catalog:styles"
+	},
+	"peerDependencies": {
+		"typescript": "catalog:",
+		"react": "catalog:react",
+		"react-dom": "catalog:react"
+	},
+	"scripts": {
+		"check": "biome check --write .",
+		"check:ci": "biome ci .",
+		"check-types": "tsc -b"
+	}
 }

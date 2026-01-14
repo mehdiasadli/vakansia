@@ -34,7 +34,7 @@ async function generateApp(options: GenerateAppOptions) {
 
 	await writeFile(
 		rootPackageJson,
-		JSON.stringify(rootPackageJsonContent, null, 2)
+		JSON.stringify(rootPackageJsonContent, null, 2),
 	);
 
 	console.log("✅ Updated root package.json");
@@ -43,7 +43,7 @@ async function generateApp(options: GenerateAppOptions) {
 	if (!existsSync(templateDir)) {
 		console.error(`❌ Template not found: ${type}-app`);
 		console.error(
-			`Available templates: ${(await readdir(templatesDir)).join(", ")}`
+			`Available templates: ${(await readdir(templatesDir)).join(", ")}`,
 		);
 		process.exit(1);
 	}
@@ -128,7 +128,7 @@ if (!name) {
 	// First positional is the name
 
 	console.error(
-		"Usage: bun run generate:app <app-name> --type=<type> --port=<port>"
+		"Usage: bun run generate:app <app-name> --type=<type> --port=<port>",
 	);
 	console.error(`Valid types: ${VALID_TYPES.join(", ")}`);
 	process.exit(1);

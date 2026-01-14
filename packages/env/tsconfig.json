@@ -1,6 +1,6 @@
 {
-  "extends": "@vakansia/config/tsconfig.base.json",
-  "compilerOptions": {
-    "strictNullChecks": true
-  }
+	"extends": "@vakansia/config/tsconfig.base.json",
+	"compilerOptions": {
+		"strictNullChecks": true
+	}
 }

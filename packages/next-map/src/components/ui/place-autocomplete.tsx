@@ -202,7 +202,7 @@ function usePlaceSearch({
 
 				if (!response.ok) {
 					throw new Error(
-						`Photon API error: ${response.status} ${response.statusText}`
+						`Photon API error: ${response.status} ${response.statusText}`,
 					);
 				}
 
@@ -299,7 +299,7 @@ function PlaceAutocomplete({
 				<InputGroup
 					className={cn(
 						"!border-input !bg-popover !ring-0",
-						showCommandList && "rounded-b-none"
+						showCommandList && "rounded-b-none",
 					)}
 				>
 					<InputGroupAddon>
@@ -331,7 +331,7 @@ function PlaceAutocomplete({
 							"data-[state=closed]:animate-out data-[state=open]:animate-in",
 							"data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
 							"data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
-							"data-[state=open]:slide-in-from-top-2 data-[state=closed]:slide-out-to-top-2"
+							"data-[state=open]:slide-in-from-top-2 data-[state=closed]:slide-out-to-top-2",
 						)}
 						data-state={showCommandList ? "open" : "closed"}
 					>
@@ -348,7 +348,7 @@ function PlaceAutocomplete({
 											key={feature.properties.osm_id}
 											onSelect={() => {
 												const formattedAddress = formatAddress(
-													feature.properties
+													feature.properties,
 												);
 
 												if (!isControlled) {

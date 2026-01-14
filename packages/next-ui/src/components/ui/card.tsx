@@ -13,7 +13,7 @@ function Card({
 	const defaultProps = {
 		className: cn(
 			"relative flex flex-col gap-6 overflow-hidden rounded-2xl border bg-card not-dark:bg-clip-padding py-6 text-card-foreground shadow-xs/5 before:pointer-events-none before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_1px_--theme(--color-black/6%)] dark:before:shadow-[0_-1px_--theme(--color-white/6%)]",
-			className
+			className,
 		),
 		"data-slot": "card",
 	};
@@ -33,7 +33,7 @@ function CardHeader({
 	const defaultProps = {
 		className: cn(
 			"@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
-			className
+			className,
 		),
 		"data-slot": "card-header",
 	};
@@ -87,7 +87,7 @@ function CardAction({
 	const defaultProps = {
 		className: cn(
 			"col-start-2 row-span-2 row-start-1 self-start justify-self-end",
-			className
+			className,
 		),
 		"data-slot": "card-action",
 	};

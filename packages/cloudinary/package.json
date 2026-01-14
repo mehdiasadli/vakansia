@@ -1,28 +1,29 @@
 {
-  "name": "@vakansia/cloudinary",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "exports": {
-    ".": "./src/index.ts",
-    "./*": "./src/*.ts"
-  },
-  "devDependencies": {
-    "@vakansia/config": "workspace:*"
-  },
-  "dependencies": {
-    "@vakansia/app": "workspace:*",
-    "@vakansia/env": "workspace:*",
-    "@vakansia/schemas": "workspace:*",
-    "@vakansia/utils": "workspace:*",
-    "cloudinary": "^2.8.0",
-    "cloudinary-build-url": "^0.2.4"
-  },
-  "peerDependencies": {
-    "typescript": "catalog:"
-  },
-  "scripts": {
-    "check": "biome check --write .",
-    "check-types": "tsc -b"
-  }
+	"name": "@vakansia/cloudinary",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts",
+		"./*": "./src/*.ts"
+	},
+	"devDependencies": {
+		"@vakansia/config": "workspace:*"
+	},
+	"dependencies": {
+		"@vakansia/app": "workspace:*",
+		"@vakansia/env": "workspace:*",
+		"@vakansia/schemas": "workspace:*",
+		"@vakansia/utils": "workspace:*",
+		"cloudinary": "^2.8.0",
+		"cloudinary-build-url": "^0.2.4"
+	},
+	"peerDependencies": {
+		"typescript": "catalog:"
+	},
+	"scripts": {
+		"check": "biome check --write .",
+		"check:ci": "biome ci .",
+		"check-types": "tsc -b"
+	}
 }

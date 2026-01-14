@@ -35,14 +35,14 @@ export function CheckboxCardGrid({
 				<div
 					className={cn(
 						"relative flex cursor-pointer flex-col gap-4 rounded-md border border-input p-4 shadow-xs outline-none has-data-[state=checked]:border-primary/50",
-						itemContainerClassName
+						itemContainerClassName,
 					)}
 					key={`${id}-${item.value}`}
 				>
 					<div
 						className={cn(
 							"flex justify-between gap-2",
-							checkboxContainerClassName
+							checkboxContainerClassName,
 						)}
 					>
 						<Checkbox

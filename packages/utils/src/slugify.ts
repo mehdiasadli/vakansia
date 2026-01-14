@@ -70,7 +70,7 @@ interface GenerateUniqueSlugOptions {
 export async function generateUniqueSlug(
 	text: string,
 	checkIfExists: (slug: string) => Promise<boolean | number>,
-	options: GenerateUniqueSlugOptions = {}
+	options: GenerateUniqueSlugOptions = {},
 ): Promise<string> {
 	const {
 		maxAttempts = 10,
@@ -120,7 +120,7 @@ export async function generateUniqueSlug(
 	}
 
 	throw new Error(
-		`Failed to generate unique slug after ${maxAttempts} attempts for text: ${text}`
+		`Failed to generate unique slug after ${maxAttempts} attempts for text: ${text}`,
 	);
 }
 

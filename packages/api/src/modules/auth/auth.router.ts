@@ -7,6 +7,6 @@ export const authRouter = {
 		.input(LoginInputSchema)
 		.output(LoginOutputSchema)
 		.handler(
-			async ({ input, context }) => await loginAuth(input, context.headers)
+			async ({ input, context }) => await loginAuth(input, context.headers),
 		),
 };
