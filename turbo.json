@@ -24,11 +24,7 @@
     "typegen": {
       "cache": false,
       "dependsOn": ["^typegen"],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        ".env*",
-        "apps/web/.next/types/routres.d.ts"
-      ]
+      "inputs": ["$TURBO_DEFAULT$", ".env*", "apps/web/.next/types/routes.d.ts"]
     },
     "db:push": {
       "cache": false

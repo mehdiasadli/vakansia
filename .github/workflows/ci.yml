@@ -41,7 +41,7 @@ jobs:
 
       - name: Install Doppler CLI
         uses: dopplerhq/cli-action@v3
-     
+
       - name: Type check
         run: bun run check-types
         timeout-minutes: 5
