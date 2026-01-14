@@ -15,11 +15,3 @@ export async function checkEmailExists(email: string) {
 
 	return count > 0;
 }
-
-export async function checkPhoneNumberExists(phoneNumber: string) {
-	const count = await prisma.user.count({
-		where: { phoneNumber },
-	});
-
-	return count > 0;
-}
