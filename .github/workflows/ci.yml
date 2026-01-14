@@ -15,6 +15,10 @@ jobs:
     name: Code Quality
     runs-on: ubuntu-latest
 
+    env:
+      # Dummy url 
+      DATABASE_URL: "postgresql://user:password@locahost:5432/vakansia"
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
