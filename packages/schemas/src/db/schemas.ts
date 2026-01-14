@@ -409,17 +409,17 @@ export type TwoFactorType = z.infer<typeof TwoFactorSchema>;
 // File: User.schema.ts
 
 export const UserSchema = z.object({
-  id: z.uuid('USER_ID_INVALID'),
-  name: z.string().min(1, 'USER_NAME_MIN_LENGTH').max(50, 'USER_NAME_MAX_LENGTH'),
-  email: z.email('USER_EMAIL_INVALID'),
+  id: z.string(),
+  name: z.string().min(1, 'models.user.fields.name.validation.min').max(50, 'models.user.fields.name.validation.max'),
+  email: z.email('models.user.fields.email.validation.email'),
   emailVerified: z.boolean(),
-  image: z.url('USER_IMAGE_INVALID').nullish(),
+  image: z.url('models.user.fields.image.validation.url').nullish(),
   twoFactorEnabled: z.boolean().nullish(),
   phoneNumber: z.string().nullish(),
   phoneNumberVerified: z.boolean().nullish(),
   role: UserRoleSchema.default("user"),
   banned: z.boolean().nullish(),
-  banReason: z.string().nullish(),
+  banReason: z.string().max(255, 'models.user.fields.banReason.validation.max').nullish(),
   banExpires: z.date().nullish(),
   username: z.string(),
   createdAt: z.date(),
