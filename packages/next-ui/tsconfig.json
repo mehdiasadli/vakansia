@@ -1,6 +1,7 @@
 {
   "extends": "@vakansia/config/tsconfig.base.json",
   "compilerOptions": {
+    "noEmit": true,
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,

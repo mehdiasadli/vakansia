@@ -24,6 +24,6 @@
   },
   "scripts": {
     "check": "biome check --write .",
-    "check-types": "turbo check-types"
+    "check-types": "tsc -b"
   }
 }
