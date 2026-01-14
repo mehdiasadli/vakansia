@@ -15,6 +15,9 @@ jobs:
     name: Code Quality
     runs-on: ubuntu-latest
 
+    env:
+      DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -42,17 +45,11 @@ jobs:
       - name: Type check
         run: bun run check-types
         timeout-minutes: 5
-        env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
 
       - name: Lint
         run: bun run check
         timeout-minutes: 3
-        env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
 
       - name: Build
         run: bun run build
         timeout-minutes: 5
-        env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
