@@ -12,7 +12,7 @@ export const LoginInputSchema = z
 			.max(64, "auth.common.fields.password.validation.max")
 			.regex(PASSWORD_REGEX, "auth.common.fields.password.validation.regex"),
 		rememberMe: z
-			.boolean("auth.common.fields.rememberMe.validation.invalid")
+			.boolean({ error: "auth.common.fields.rememberMe.validation.invalid" })
 			.default(false),
 	})
 	.required();
