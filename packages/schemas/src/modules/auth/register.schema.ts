@@ -11,6 +11,7 @@ export const RegisterInputSchema = z
 		rememberMe: RememberMeSchema,
 		password: PasswordSchema,
 		confirmPassword: ConfirmPasswordSchema,
+		callbackURL: z.string().optional(),
 	})
 	.extend(
 		UserSchema.pick({

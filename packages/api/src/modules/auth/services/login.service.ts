@@ -14,11 +14,7 @@ export async function loginAuth(
 ): Promise<LoginOutputType> {
 	const [error, response] = await Run.try(
 		auth.api.signInEmail({
-			body: {
-				email: input.email,
-				password: input.password,
-				rememberMe: input.rememberMe,
-			},
+			body: input,
 			headers,
 		}),
 	);
@@ -36,9 +32,7 @@ export async function loginAuth(
 	}
 
 	return {
-		redirect: response.redirect,
-		url: response.url,
-		token: response.token,
+		...response,
 		user: {
 			...response.user,
 			role: (response.user.role ?? "user") as UserRole,

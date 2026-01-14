@@ -3,6 +3,7 @@ import { UserSchema } from "../../db/schemas";
 
 export const ForgetPasswordInputSchema = z.object({
 	email: UserSchema.shape.email,
+	redirectTo: z.string().optional(),
 });
 
 export const ForgetPasswordOutputSchema = z

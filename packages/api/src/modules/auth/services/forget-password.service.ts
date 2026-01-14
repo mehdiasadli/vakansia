@@ -13,9 +13,7 @@ export async function forgetPasswordAuth(
 ): Promise<ForgetPasswordOutputType> {
 	const [error, response] = await Run.try(
 		auth.api.requestPasswordReset({
-			body: {
-				email: input.email,
-			},
+			body: input,
 			headers,
 		}),
 	);

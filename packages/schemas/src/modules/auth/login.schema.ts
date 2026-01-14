@@ -7,8 +7,10 @@ export const LoginInputSchema = z
 		email: UserSchema.shape.email,
 		password: PasswordSchema,
 		rememberMe: RememberMeSchema,
+		callbackURL: z.string(),
 	})
-	.required();
+	.required()
+	.partial({ callbackURL: true });
 
 export const LoginOutputSchema = z.object({
 	token: z.string(),

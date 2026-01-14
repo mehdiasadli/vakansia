@@ -27,13 +27,7 @@ export async function registerAuth(
 
 	const [error, response] = await Run.try(
 		auth.api.signUpEmail({
-			body: {
-				email: input.email,
-				name: input.name,
-				password: input.password,
-				username: input.username,
-				rememberMe: input.rememberMe,
-			},
+			body: input,
 			headers,
 		}),
 	);
@@ -51,7 +45,7 @@ export async function registerAuth(
 	}
 
 	return {
-		token: response.token,
+		...response,
 		user: {
 			...response.user,
 			role: (response.user.role ?? "user") as UserRole,
