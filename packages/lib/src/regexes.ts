@@ -12,4 +12,4 @@ export const VOEN_REGEX = /^(\d{2})(\d{6})(\d)(\d)$/;
  *
  * ** No need to check for length, it will be checked by the schema
  */
-export const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+$/;
+export const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
