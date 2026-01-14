@@ -15,10 +15,6 @@ jobs:
     name: Code Quality
     runs-on: ubuntu-latest
 
-    env:
-      # Dummy url 
-      DATABASE_URL: "postgresql://user:password@locahost:5432/vakansia"
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,10 +28,6 @@ jobs:
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
-        timeout-minutes: 3
-
-      - name: Generate prisma
-        run: bun run db:generate
         timeout-minutes: 3
 
       - name: Type check
