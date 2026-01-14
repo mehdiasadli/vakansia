@@ -1,23 +1,27 @@
 {
-  "name": "@vakansia/env",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "exports": {
-    "./server": "./src/server.ts",
-    "./web": "./src/web.ts",
-    "./native": "./src/native.ts"
-  },
-  "dependencies": {
-    "@t3-oss/env-core": "catalog:config",
-    "@t3-oss/env-nextjs": "catalog:config",
-    "dotenv": "catalog:",
-    "zod": "catalog:",
-    "@vakansia/lib": "workspace:*"
-  },
-  "devDependencies": {
-    "@types/bun": "catalog:",
-    "@vakansia/config": "workspace:*",
-    "typescript": "catalog:"
-  }
+	"name": "@vakansia/env",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		"./server": "./src/server.ts",
+		"./web": "./src/web.ts",
+		"./native": "./src/native.ts"
+	},
+	"dependencies": {
+		"@t3-oss/env-core": "catalog:config",
+		"@t3-oss/env-nextjs": "catalog:config",
+		"dotenv": "catalog:",
+		"zod": "catalog:",
+		"@vakansia/lib": "workspace:*"
+	},
+	"devDependencies": {
+		"@types/bun": "catalog:",
+		"@vakansia/config": "workspace:*",
+		"typescript": "catalog:"
+	},
+	"scripts": {
+		"check": "biome check --write .",
+		"check:ci": "biome ci ."
+	}
 }

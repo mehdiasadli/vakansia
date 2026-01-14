@@ -95,55 +95,55 @@ import {
 
 const LeafletMapContainer = dynamic(
 	async () => (await import("react-leaflet")).MapContainer,
-	{ ssr: false }
+	{ ssr: false },
 );
 const LeafletTileLayer = dynamic(
 	async () => (await import("react-leaflet")).TileLayer,
-	{ ssr: false }
+	{ ssr: false },
 );
 const LeafletMarker = dynamic(
 	async () => (await import("react-leaflet")).Marker,
-	{ ssr: false }
+	{ ssr: false },
 );
 const LeafletPopup = dynamic(
 	async () => (await import("react-leaflet")).Popup,
-	{ ssr: false }
+	{ ssr: false },
 );
 const LeafletTooltip = dynamic(
 	async () => (await import("react-leaflet")).Tooltip,
-	{ ssr: false }
+	{ ssr: false },
 );
 const LeafletCircle = dynamic(
 	async () => (await import("react-leaflet")).Circle,
-	{ ssr: false }
+	{ ssr: false },
 );
 const LeafletCircleMarker = dynamic(
 	async () => (await import("react-leaflet")).CircleMarker,
-	{ ssr: false }
+	{ ssr: false },
 );
 const LeafletPolyline = dynamic(
 	async () => (await import("react-leaflet")).Polyline,
-	{ ssr: false }
+	{ ssr: false },
 );
 const LeafletPolygon = dynamic(
 	async () => (await import("react-leaflet")).Polygon,
-	{ ssr: false }
+	{ ssr: false },
 );
 const LeafletRectangle = dynamic(
 	async () => (await import("react-leaflet")).Rectangle,
-	{ ssr: false }
+	{ ssr: false },
 );
 const LeafletLayerGroup = dynamic(
 	async () => (await import("react-leaflet")).LayerGroup,
-	{ ssr: false }
+	{ ssr: false },
 );
 const LeafletFeatureGroup = dynamic(
 	async () => (await import("react-leaflet")).FeatureGroup,
-	{ ssr: false }
+	{ ssr: false },
 );
 const LeafletMarkerClusterGroup = dynamic(
 	async () => await import("react-leaflet-markercluster"),
-	{ ssr: false }
+	{ ssr: false },
 ) as ComponentType<MarkerClusterGroupProps>;
 
 function Map({
@@ -312,7 +312,7 @@ function MapLayers({
 }) {
 	const [tileLayers, setTileLayers] = useState<MapTileLayerOption[]>([]);
 	const [selectedTileLayer, setSelectedTileLayer] = useState<string>(
-		defaultTileLayer || ""
+		defaultTileLayer || "",
 	);
 	const [layerGroups, setLayerGroups] = useState<MapLayerGroupOption[]>([]);
 	const [activeLayerGroups, setActiveLayerGroups] =
@@ -344,7 +344,7 @@ function MapLayers({
 			!tileLayers.some((tileLayer) => tileLayer.name === defaultTileLayer)
 		) {
 			throw new Error(
-				`Invalid defaultTileLayer "${defaultTileLayer}" provided to MapLayers. It must match a MapTileLayer's name prop.`
+				`Invalid defaultTileLayer "${defaultTileLayer}" provided to MapLayers. It must match a MapTileLayer's name prop.`,
 			);
 		}
 
@@ -363,11 +363,11 @@ function MapLayers({
 			defaultLayerGroups.length > 0 &&
 			layerGroups.length > 0 &&
 			defaultLayerGroups.some(
-				(name) => !layerGroups.some((group) => group.name === name)
+				(name) => !layerGroups.some((group) => group.name === name),
 			)
 		) {
 			throw new Error(
-				`Invalid defaultLayerGroups value provided to MapLayers. All names must match a MapLayerGroup's name prop.`
+				`Invalid defaultLayerGroups value provided to MapLayers. All names must match a MapLayerGroup's name prop.`,
 			);
 		}
 	}, [
@@ -426,7 +426,7 @@ function MapLayersControl({
 		setActiveLayerGroups(
 			checked
 				? [...activeLayerGroups, name]
-				: activeLayerGroups.filter((groupName) => groupName !== name)
+				: activeLayerGroups.filter((groupName) => groupName !== name),
 		);
 	}
 
@@ -640,7 +640,7 @@ function MapPopup({
 		<LeafletPopup
 			className={cn(
 				"fade-out-0 fade-in-0 zoom-out-95 zoom-in-95 slide-in-from-bottom-2 z-50 w-72 animate-in rounded-md border bg-popover p-4 font-sans text-popover-foreground shadow-md outline-hidden",
-				className
+				className,
 			)}
 			{...props}
 		/>
@@ -675,7 +675,7 @@ function MapTooltip({
 		<LeafletTooltip
 			className={cn(
 				"fade-in-0 zoom-in-95 fade-out-0 zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 w-fit animate-in text-balance text-xs transition-opacity",
-				className
+				className,
 			)}
 			data-side={side}
 			direction={side}
@@ -687,7 +687,7 @@ function MapTooltip({
 			<div
 				className={cn(
 					"absolute z-50 size-2.5 rotate-45 rounded-[2px] bg-foreground fill-foreground",
-					ARROW_POSITION_CLASSES[side]
+					ARROW_POSITION_CLASSES[side],
 				)}
 			/>
 		</LeafletTooltip>
@@ -894,7 +894,7 @@ function MapDrawControl({
 		return () => {
 			map.off(
 				L.Draw.Event.CREATED,
-				handleDrawCreated as L.LeafletEventHandlerFn
+				handleDrawCreated as L.LeafletEventHandlerFn,
 			);
 			map.off(L.Draw.Event.EDITED, handleDrawEditedOrDeleted);
 			map.off(L.Draw.Event.DELETED, handleDrawEditedOrDeleted);
@@ -1125,7 +1125,7 @@ function MapDrawActionButton<T extends EditToolbar.Edit | EditToolbar.Delete>({
 	createDrawTool: (
 		L: typeof import("leaflet"),
 		map: DrawMap,
-		featureGroup: L.FeatureGroup
+		featureGroup: L.FeatureGroup,
 	) => T;
 	controlRef: React.RefObject<T | null>;
 }) {
@@ -1329,7 +1329,7 @@ function useMapDrawHandleIcon() {
 	return L.divIcon({
 		iconAnchor: [8, 8],
 		html: renderToString(
-			<CircleIcon className="size-4 fill-primary stroke-primary transition-transform hover:scale-110" />
+			<CircleIcon className="size-4 fill-primary stroke-primary transition-transform hover:scale-110" />,
 		),
 	});
 }

@@ -1,31 +1,35 @@
 {
-  "name": "@vakansia/api",
-  "type": "module",
-  "exports": {
-    ".": {
-      "default": "./src/index.ts"
-    },
-    "./*": {
-      "default": "./src/*.ts"
-    }
-  },
-  "dependencies": {
-    "hono": "catalog:hono",
-    "@orpc/client": "catalog:orpc",
-    "@orpc/openapi": "catalog:orpc",
-    "@orpc/server": "catalog:orpc",
-    "@orpc/zod": "catalog:orpc",
-    "@vakansia/auth": "workspace:*",
-    "@vakansia/db": "workspace:*",
-    "@vakansia/schemas": "workspace:*",
-    "@vakansia/env": "workspace:*",
-    "@vakansia/i18n": "workspace:*",
-    "@vakansia/utils": "workspace:*",
-    "dotenv": "catalog:",
-    "zod": "catalog:"
-  },
-  "devDependencies": {
-    "@vakansia/config": "workspace:*",
-    "typescript": "catalog:"
-  }
+	"name": "@vakansia/api",
+	"type": "module",
+	"exports": {
+		".": {
+			"default": "./src/index.ts"
+		},
+		"./*": {
+			"default": "./src/*.ts"
+		}
+	},
+	"dependencies": {
+		"hono": "catalog:hono",
+		"@orpc/client": "catalog:orpc",
+		"@orpc/openapi": "catalog:orpc",
+		"@orpc/server": "catalog:orpc",
+		"@orpc/zod": "catalog:orpc",
+		"@vakansia/auth": "workspace:*",
+		"@vakansia/db": "workspace:*",
+		"@vakansia/schemas": "workspace:*",
+		"@vakansia/env": "workspace:*",
+		"@vakansia/i18n": "workspace:*",
+		"@vakansia/utils": "workspace:*",
+		"dotenv": "catalog:",
+		"zod": "catalog:"
+	},
+	"devDependencies": {
+		"@vakansia/config": "workspace:*",
+		"typescript": "catalog:"
+	},
+	"scripts": {
+		"check": "biome check --write .",
+		"check:ci": "biome ci ."
+	}
 }

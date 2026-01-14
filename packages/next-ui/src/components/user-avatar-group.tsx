@@ -47,7 +47,7 @@ export function UserAvatarGroup({
 		<div
 			className={cn(
 				"flex items-center rounded-full bg-muted p-0.5",
-				containerClassName
+				containerClassName,
 			)}
 		>
 			<div className={cn("flex -space-x-3", avatarsContainerClassName)}>
@@ -64,7 +64,7 @@ export function UserAvatarGroup({
 				<Button
 					className={cn(
 						"flex items-center justify-center rounded-full bg-transparent px-3 text-muted-foreground text-xs shadow-none hover:bg-transparent hover:text-foreground",
-						buttonClassName
+						buttonClassName,
 					)}
 					variant="secondary"
 					{...buttonProps}

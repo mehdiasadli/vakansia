@@ -4,7 +4,7 @@ import type {
 } from "@vakansia/schemas";
 
 export async function deleteMember(
-	input: DeleteMemberInputType
+	input: DeleteMemberInputType,
 ): Promise<DeleteMemberOutputType> {
 	console.log(`${deleteMember.name} service`);
 	console.log("Input:", input);

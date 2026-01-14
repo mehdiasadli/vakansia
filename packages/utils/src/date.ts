@@ -69,13 +69,13 @@ export function formatDate(date: Date, options: FormatDateOptions = {}) {
 
 	const values = [days, months, years].filter(
 		(value): value is Exclude<DayFormat | MonthFormat | YearFormat, "none"> =>
-			value !== "none"
+			value !== "none",
 	);
 
 	return format(
 		date,
 		formatValue || values.join(separator),
-		getLocaleObject(locale)
+		getLocaleObject(locale),
 	);
 }
 
@@ -91,15 +91,15 @@ export function formatTime(date: Date, options: FormatTimeOptions = {}) {
 
 	const values = [hours, minutes, seconds].filter(
 		(
-			value
+			value,
 		): value is Exclude<HourFormat | MinuteFormat | SecondFormat, "none"> =>
-			value !== "none"
+			value !== "none",
 	);
 
 	return format(
 		date,
 		formatValue || values.join(separator),
-		getLocaleObject(locale)
+		getLocaleObject(locale),
 	);
 }
 
@@ -112,7 +112,7 @@ interface FormatDateTimeOptions
 
 export function formatDateTime(
 	date: Date,
-	options: FormatDateTimeOptions = {}
+	options: FormatDateTimeOptions = {},
 ) {
 	const {
 		days = "dd",
@@ -129,20 +129,20 @@ export function formatDateTime(
 
 	const dateValues = [days, months, years].filter(
 		(value): value is Exclude<DayFormat | MonthFormat | YearFormat, "none"> =>
-			value !== "none"
+			value !== "none",
 	);
 
 	const timeValues = [hours, minutes, seconds].filter(
 		(
-			value
+			value,
 		): value is Exclude<HourFormat | MinuteFormat | SecondFormat, "none"> =>
-			value !== "none"
+			value !== "none",
 	);
 
 	return format(
 		date,
 		formatValue ||
 			`${dateValues.join(separator)}${dateTimeSeparator}${timeValues.join(separator)}`,
-		getLocaleObject(locale)
+		getLocaleObject(locale),
 	);
 }

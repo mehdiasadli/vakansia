@@ -23,7 +23,7 @@ const name = positionals[0];
 if (!name) {
 	console.error("❌ Error: Name is required");
 	console.error(
-		"Usage: bun run generate:api <name> --use-model=true --methods=create,update"
+		"Usage: bun run generate:api <name> --use-model=true --methods=create,update",
 	);
 	process.exit(1);
 }
@@ -35,7 +35,7 @@ console.log("🚀 Generating complete API (schemas + module)...");
 console.log(`   Name: ${name}`);
 console.log(`   Use model: ${useModel}`);
 console.log(
-	`   Methods: ${methods || "default (create, update, find-one, find-many, delete)"}`
+	`   Methods: ${methods || "default (create, update, find-one, find-many, delete)"}`,
 );
 console.log();
 
@@ -93,13 +93,13 @@ console.log("✨ Complete API generated successfully!");
 console.log();
 console.log("📝 Next steps:");
 console.log(
-	`   1. Fill in schemas: packages/schemas/src/modules/${name.toLowerCase().replace(/\s+/g, "-")}/*.schema.ts`
+	`   1. Fill in schemas: packages/schemas/src/modules/${name.toLowerCase().replace(/\s+/g, "-")}/*.schema.ts`,
 );
 console.log(
-	`   2. Implement services: packages/api/src/modules/${name.toLowerCase().replace(/\s+/g, "-")}/services/*.service.ts`
+	`   2. Implement services: packages/api/src/modules/${name.toLowerCase().replace(/\s+/g, "-")}/services/*.service.ts`,
 );
 console.log(
-	"   3. Update procedure types if needed (publicProcedure → protectedProcedure, etc.)"
+	"   3. Update procedure types if needed (publicProcedure → protectedProcedure, etc.)",
 );
 console.log("   4. Run: bun run check");
 console.log("   5. Test your API endpoints");

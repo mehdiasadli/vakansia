@@ -1,19 +1,19 @@
 {
-  "name": "@vakansia/i18n",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "exports": {
-    ".": "./src/index.ts",
-    "./*": "./src/*.ts"
-  },
-  "devDependencies": {
-    "@vakansia/config": "workspace:*"
-  },
-  "dependencies": {
-    "@vakansia/env": "workspace:*"
-  },
-  "peerDependencies": {
-    "typescript": "catalog:"
-  }
+	"name": "@vakansia/i18n",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts",
+		"./*": "./src/*.ts"
+	},
+	"devDependencies": {
+		"@vakansia/config": "workspace:*"
+	},
+	"dependencies": {
+		"@vakansia/env": "workspace:*"
+	},
+	"peerDependencies": {
+		"typescript": "catalog:"
+	}
 }

@@ -45,7 +45,7 @@ const name = positionals[0];
 if (!name) {
 	console.error("❌ Error: Module name is required");
 	console.error(
-		"Usage: bun run generate:module <name> --methods=create,update"
+		"Usage: bun run generate:module <name> --methods=create,update",
 	);
 	process.exit(1);
 }
@@ -54,7 +54,7 @@ const kname = toKebabCase(name);
 
 if (!validateKebabCase(kname)) {
 	console.error(
-		`❌ Error: Invalid name "${name}". Must be in kebab-case (e.g., user, job-application)`
+		`❌ Error: Invalid name "${name}". Must be in kebab-case (e.g., user, job-application)`,
 	);
 	process.exit(1);
 }
@@ -74,7 +74,7 @@ if (methodsInput) {
 	for (const method of methods) {
 		if (!validateKebabCase(method)) {
 			console.error(
-				`❌ Error: Invalid method "${method}". Must be in kebab-case`
+				`❌ Error: Invalid method "${method}". Must be in kebab-case`,
 			);
 			process.exit(1);
 		}
@@ -201,7 +201,7 @@ export type AppRouterClient = RouterClient<typeof appRouter>;
 		// Find the last import line
 		const lines = routerFileContent.split("\n");
 		const lastImportIndex = lines.findLastIndex((line) =>
-			line.startsWith("import")
+			line.startsWith("import"),
 		);
 
 		if (lastImportIndex !== -1) {
@@ -220,7 +220,7 @@ export type AppRouterClient = RouterClient<typeof appRouter>;
 	if (!routerFileContent.includes(routerProperty)) {
 		// Find appRouter object and add the property
 		const appRouterMatch = routerFileContent.match(
-			/export const appRouter = \{([^}]*)\}/s
+			/export const appRouter = \{([^}]*)\}/s,
 		);
 
 		if (appRouterMatch) {
@@ -237,7 +237,7 @@ export type AppRouterClient = RouterClient<typeof appRouter>;
 
 			routerFileContent = routerFileContent.replace(
 				/export const appRouter = \{([^}]*)\}/s,
-				`export const appRouter = {${newContent}}`
+				`export const appRouter = {${newContent}}`,
 			);
 		}
 	}
@@ -251,13 +251,13 @@ export type AppRouterClient = RouterClient<typeof appRouter>;
 console.log(`\n✨ API module "${kname}" generated successfully!`);
 console.log("\nNext steps:");
 console.log(
-	`  1. Implement the service logic in packages/api/src/modules/${kname}/services/*.service.ts`
+	`  1. Implement the service logic in packages/api/src/modules/${kname}/services/*.service.ts`,
 );
 console.log(
-	`  2. Fill in the input/output schemas in packages/schemas/src/modules/${kname}/*.schema.ts`
+	`  2. Fill in the input/output schemas in packages/schemas/src/modules/${kname}/*.schema.ts`,
 );
 console.log(
-	"  3. Update procedure type if needed (publicProcedure, protectedProcedure, etc.)"
+	"  3. Update procedure type if needed (publicProcedure, protectedProcedure, etc.)",
 );
 console.log("  4. Run: bun run check to format the files");
 console.log("  5. Test your endpoints");

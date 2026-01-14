@@ -60,7 +60,7 @@ function PaginationLink({
 						size,
 						variant: isActive ? "outline" : "ghost",
 					}),
-					className
+					className,
 				),
 		"data-active": isActive,
 		"data-slot": "pagination-link",

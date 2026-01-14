@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "Checking commit message..."
+
+bunx commitlint --edit $1

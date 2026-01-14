@@ -1,21 +1,25 @@
 {
-  "name": "@vakansia/schemas",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "exports": {
-    ".": "./src/index.ts",
-    "./*": "./src/*.ts"
-  },
-  "devDependencies": {
-    "@vakansia/config": "workspace:*"
-  },
-  "dependencies": {
-    "@vakansia/env": "workspace:*",
-    "zod": "catalog:",
-    "@vakansia/lib": "workspace:*"
-  },
-  "peerDependencies": {
-    "typescript": "catalog:"
-  }
+	"name": "@vakansia/schemas",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts",
+		"./*": "./src/*.ts"
+	},
+	"scripts": {
+		"check": "biome check --write .",
+		"check:ci": "biome ci ."
+	},
+	"devDependencies": {
+		"@vakansia/config": "workspace:*"
+	},
+	"dependencies": {
+		"@vakansia/env": "workspace:*",
+		"zod": "catalog:",
+		"@vakansia/lib": "workspace:*"
+	},
+	"peerDependencies": {
+		"typescript": "catalog:"
+	}
 }

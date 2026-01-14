@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
 };
 
 const withNextIntl = createNextIntlPlugin(
-	"../../packages/next-i18n/src/request.ts"
+	"../../packages/next-i18n/src/request.ts",
 );
 
 export default withNextIntl(nextConfig);

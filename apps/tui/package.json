@@ -1,18 +1,20 @@
 {
-  "name": "tui",
-  "private": true,
-  "type": "module",
-  "module": "src/index.tsx",
-  "scripts": {
-    "__dev": "bun run --watch src/index.ts"
-  },
-  "dependencies": {
-    "@opentui/core": "catalog:tui"
-  },
-  "devDependencies": {
-    "@types/bun": "catalog:"
-  },
-  "peerDependencies": {
-    "typescript": "catalog:"
-  }
+	"name": "tui",
+	"private": true,
+	"type": "module",
+	"module": "src/index.tsx",
+	"scripts": {
+		"__dev": "bun run --watch src/index.ts",
+		"__check": "biome check --write .",
+		"__check:ci": "biome ci ."
+	},
+	"dependencies": {
+		"@opentui/core": "catalog:tui"
+	},
+	"devDependencies": {
+		"@types/bun": "catalog:"
+	},
+	"peerDependencies": {
+		"typescript": "catalog:"
+	}
 }

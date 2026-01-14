@@ -57,7 +57,7 @@ export function LLMCopyButton({
 					color: "secondary",
 					size: "sm",
 					className: "gap-2 [&_svg]:size-3.5 [&_svg]:text-fd-muted-foreground",
-				})
+				}),
 			)}
 			disabled={isLoading}
 			onClick={onClick}
@@ -218,7 +218,7 @@ export function ViewOptions({
 						color: "secondary",
 						size: "sm",
 						className: "gap-2",
-					})
+					}),
 				)}
 			>
 				Open

@@ -1,28 +1,30 @@
 {
-  "name": "extension",
-  "version": "0.0.0",
-  "private": true,
-  "description": "manifest.json description",
-  "type": "module",
-  "scripts": {
-    "__dev": "wxt --port 5555",
-    "__dev:firefox": "wxt -b firefox",
-    "__build": "wxt build",
-    "__build:firefox": "wxt build -b firefox",
-    "__zip": "wxt zip",
-    "__zip:firefox": "wxt zip -b firefox",
-    "__compile": "tsc --noEmit",
-    "__postinstall": "wxt prepare"
-  },
-  "dependencies": {
-    "react": "catalog:react",
-    "react-dom": "catalog:react"
-  },
-  "devDependencies": {
-    "@types/react": "catalog:react",
-    "@types/react-dom": "catalog:react",
-    "@wxt-dev/module-react": "catalog:wxt",
-    "typescript": "catalog:",
-    "wxt": "catalog:wxt"
-  }
+	"name": "extension",
+	"version": "0.0.0",
+	"private": true,
+	"description": "manifest.json description",
+	"type": "module",
+	"scripts": {
+		"__dev": "wxt --port 5555",
+		"__dev:firefox": "wxt -b firefox",
+		"__build": "wxt build",
+		"__build:firefox": "wxt build -b firefox",
+		"__zip": "wxt zip",
+		"__zip:firefox": "wxt zip -b firefox",
+		"__compile": "tsc --noEmit",
+		"__postinstall": "wxt prepare",
+		"__check": "biome check --write .",
+		"__check:ci": "biome ci ."
+	},
+	"dependencies": {
+		"react": "catalog:react",
+		"react-dom": "catalog:react"
+	},
+	"devDependencies": {
+		"@types/react": "catalog:react",
+		"@types/react-dom": "catalog:react",
+		"@wxt-dev/module-react": "catalog:wxt",
+		"typescript": "catalog:",
+		"wxt": "catalog:wxt"
+	}
 }

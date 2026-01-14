@@ -12,7 +12,7 @@ interface MobileNavProps {
 }
 
 function isLinkGroup(
-	item: LinkItemType | LinkItemGroup
+	item: LinkItemType | LinkItemGroup,
 ): item is LinkItemGroup {
 	return "items" in item && item.items.length > 0;
 }
@@ -37,7 +37,7 @@ function MenuToggleButton({
 			<div
 				className={cn(
 					"transition-all",
-					open ? "scale-100 opacity-100" : "scale-0 opacity-0"
+					open ? "scale-100 opacity-100" : "scale-0 opacity-0",
 				)}
 			>
 				<XIcon aria-hidden="true" className="size-4.5" />
@@ -45,7 +45,7 @@ function MenuToggleButton({
 			<div
 				className={cn(
 					"absolute transition-all",
-					open ? "scale-0 opacity-0" : "scale-100 opacity-100"
+					open ? "scale-0 opacity-0" : "scale-100 opacity-100",
 				)}
 			>
 				<MenuIcon aria-hidden="true" className="size-4.5" />
@@ -120,14 +120,14 @@ function MobileMenuOverlay({
 		<div
 			className={cn(
 				"bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/50",
-				"fixed top-14 right-0 bottom-0 left-0 z-40 flex flex-col overflow-hidden border-t md:hidden"
+				"fixed top-14 right-0 bottom-0 left-0 z-40 flex flex-col overflow-hidden border-t md:hidden",
 			)}
 			id="mobile-menu"
 		>
 			<div
 				className={cn(
 					"data-[slot=open]:zoom-in-97 ease-out data-[slot=open]:animate-in",
-					"size-full overflow-y-auto overflow-x-hidden p-4"
+					"size-full overflow-y-auto overflow-x-hidden p-4",
 				)}
 				data-slot={open ? "open" : "closed"}
 			>
@@ -135,7 +135,7 @@ function MobileMenuOverlay({
 				<MobileMenuActions />
 			</div>
 		</div>,
-		document.body
+		document.body,
 	);
 }
 

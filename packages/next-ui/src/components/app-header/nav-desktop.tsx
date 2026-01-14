@@ -15,7 +15,7 @@ interface DesktopNavProps {
 }
 
 function isLinkGroup(
-	item: LinkItemType | LinkItemGroup
+	item: LinkItemType | LinkItemGroup,
 ): item is LinkItemGroup {
 	return "items" in item && item.items.length > 0;
 }

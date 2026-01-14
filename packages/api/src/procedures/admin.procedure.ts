@@ -15,7 +15,7 @@ export const adminProcedure = protectedProcedure.use(({ context, next }) => {
 	}
 
 	const { success } = UserRoleSchema.extract(["admin", "owner"]).safeParse(
-		userRole
+		userRole,
 	);
 
 	if (!success) {
