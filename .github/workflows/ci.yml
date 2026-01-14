@@ -42,6 +42,17 @@ jobs:
       - name: Install Doppler CLI
         uses: dopplerhq/cli-action@v3
 
+      - name: Debug Secret Visibility
+        run: |
+          if [ -z "$DOPPLER_TOKEN" ]; then
+            echo "🛑 FATAL: DOPPLER_TOKEN is empty. Check GitHub Secrets."
+            exit 1
+          else
+            echo "✅ SUCCESS: DOPPLER_TOKEN is found (Length: ${#DOPPLER_TOKEN})"
+          fi
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
+
       - name: Type check
         run: bun run check-types
         timeout-minutes: 5
