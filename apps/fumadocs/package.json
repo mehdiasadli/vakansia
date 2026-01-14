@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    // "build": "next build",
-    // "dev": "next dev --port=4000",
-    // "start": "next start",
-    // "types:check": "fumadocs-mdx && next typegen && tsc --noEmit",
-    // "postinstall": "fumadocs-mdx"
+    "__build": "next build",
+    "__dev": "next dev --port=4000",
+    "__start": "next start",
+    "__types:check": "fumadocs-mdx && next typegen && tsc --noEmit",
+    "__postinstall": "fumadocs-mdx"
   },
   "dependencies": {
     "fumadocs-core": "catalog:fumadocs",
