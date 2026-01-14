@@ -24,4 +24,10 @@ export const RegisterInputSchema = z
 		path: ["confirmPassword"],
 	});
 
+export const RegisterOutputSchema = z.object({
+	token: z.string().nullable(),
+	user: UserSchema,
+});
+
 export type RegisterInputType = z.infer<typeof RegisterInputSchema>;
+export type RegisterOutputType = z.infer<typeof RegisterOutputSchema>;
