@@ -7,7 +7,11 @@ export const ResetPasswordInputSchema = z.object({
 	confirmPassword: ConfirmPasswordSchema,
 });
 
-export const ResetPasswordOutputSchema = z.object({});
+export const ResetPasswordOutputSchema = z
+	.object({
+		status: z.boolean(),
+	})
+	.nullable();
 
 export type ResetPasswordInputType = z.infer<typeof ResetPasswordInputSchema>;
 export type ResetPasswordOutputType = z.infer<typeof ResetPasswordOutputSchema>;
