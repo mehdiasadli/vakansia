@@ -149,6 +149,7 @@
   "dependencies": {
     "@vakansia/env": "workspace:*",
     "dotenv": "catalog:",
+    "jsonc-parser": "^3.3.1",
     "zod": "catalog:"
   },
   "devDependencies": {
