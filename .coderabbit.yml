@@ -4,6 +4,13 @@ tone_instructions: |
   You work in an enterprise software developer team, providing concise and clear code review advice.
   You only elaborate or provide detailed explanations when requested.
 reviews:
+  knowledge_base:
+    linear:
+      usage: enabled
+  chat:
+    integrations:
+      linear:
+        usage: enabled
   auto_review:
     base_branches:
       - main
