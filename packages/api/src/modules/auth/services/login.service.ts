@@ -10,7 +10,7 @@ import type { ContextHeaders } from "../../../context";
 
 export async function loginAuth(
 	input: LoginInputType,
-	headers: ContextHeaders
+	headers: ContextHeaders,
 ): Promise<LoginOutputType> {
 	const [error, response] = await Run.try(
 		auth.api.signInEmail({
@@ -20,7 +20,7 @@ export async function loginAuth(
 				rememberMe: input.rememberMe,
 			},
 			headers,
-		})
+		}),
 	);
 
 	if (error) {

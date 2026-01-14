@@ -1,28 +1,29 @@
 {
-  "name": "@vakansia/utils",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "exports": {
-    ".": "./src/index.ts",
-    "./*": "./src/*.ts"
-  },
-  "devDependencies": {
-    "@vakansia/config": "workspace:*"
-  },
-  "dependencies": {
-    "@vakansia/app": "workspace:*",
-    "@vakansia/env": "workspace:*",
-    "@vakansia/schemas": "workspace:*",
-    "@vakansia/lib": "workspace:*",
-    "@vakansia/i18n": "workspace:*",
-    "date-fns": "catalog:"
-  },
-  "peerDependencies": {
-    "typescript": "catalog:"
-  },
-  "scripts": {
-    "check": "biome check --write .",
-    "check-types": "turbo check-types"
-  }
+	"name": "@vakansia/utils",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts",
+		"./*": "./src/*.ts"
+	},
+	"devDependencies": {
+		"@vakansia/config": "workspace:*"
+	},
+	"dependencies": {
+		"@vakansia/app": "workspace:*",
+		"@vakansia/env": "workspace:*",
+		"@vakansia/schemas": "workspace:*",
+		"@vakansia/lib": "workspace:*",
+		"@vakansia/i18n": "workspace:*",
+		"date-fns": "catalog:"
+	},
+	"peerDependencies": {
+		"typescript": "catalog:"
+	},
+	"scripts": {
+		"check": "biome check --write .",
+		"check:ci": "biome ci .",
+		"check-types": "tsc -b"
+	}
 }

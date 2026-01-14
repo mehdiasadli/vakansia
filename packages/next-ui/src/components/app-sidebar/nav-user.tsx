@@ -101,7 +101,7 @@ export function NavUser({
 							{menuItems.map((item) => {
 								const resolvedClassName = cn(
 									menuItemClassName,
-									item.itemClassName
+									item.itemClassName,
 								);
 
 								const resolvedProps = {

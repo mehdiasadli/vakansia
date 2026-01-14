@@ -31,7 +31,7 @@ export type ValidateVOENResult = (
 
 export function validateVOEN(
 	voen: string,
-	options: ValidateVOENOptions = {}
+	options: ValidateVOENOptions = {},
 ): ValidateVOENResult {
 	const { territories = [], statuses = [] } = options;
 

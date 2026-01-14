@@ -38,7 +38,7 @@ export function getMessages(code: string) {
 // biome-ignore lint/suspicious/noExplicitAny: we need to allow any type here
 export function interpolate(template: string, params?: Record<string, any>) {
 	return template.replace(/{(\w+)}/g, (match, key) =>
-		params?.[key] ? String(params[key]) : match
+		params?.[key] ? String(params[key]) : match,
 	);
 }
 

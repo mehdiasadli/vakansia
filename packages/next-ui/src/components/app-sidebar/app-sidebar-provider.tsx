@@ -39,13 +39,13 @@ export function AppSidebarProvider({
 				<header
 					className={cn(
 						"flex h-16 shrink-0 items-center gap-2",
-						headerClassName
+						headerClassName,
 					)}
 				>
 					<div
 						className={cn(
 							"flex items-center gap-2 px-4",
-							triggerContainerClassName
+							triggerContainerClassName,
 						)}
 					>
 						<SidebarTrigger className={cn("-ml-1", triggerClassName)} />

@@ -4,7 +4,7 @@ import type {
 } from "@vakansia/schemas";
 
 export async function createMember(
-	input: CreateMemberInputType
+	input: CreateMemberInputType,
 ): Promise<CreateMemberOutputType> {
 	console.log(`${createMember.name} service`);
 	console.log("Input:", input);

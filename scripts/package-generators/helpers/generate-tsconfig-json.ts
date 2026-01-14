@@ -14,7 +14,7 @@ interface GenerateTsconfigJsonOptions {
 }
 
 export async function generateTsconfigJson(
-	options: GenerateTsconfigJsonOptions
+	options: GenerateTsconfigJsonOptions,
 ) {
 	const { packagePath, onExistsMessage, compilerOptions } = options;
 
@@ -32,7 +32,7 @@ export async function generateTsconfigJson(
 			console.error(onExistsMessage(tsconfigJsonPath));
 		} else {
 			console.error(
-				`\`tsconfig.json\` file already exists: ${tsconfigJsonPath}`
+				`\`tsconfig.json\` file already exists: ${tsconfigJsonPath}`,
 			);
 		}
 		process.exit(1);

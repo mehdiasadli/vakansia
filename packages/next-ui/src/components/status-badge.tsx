@@ -39,7 +39,7 @@ export function StatusBadge({
 					"size-1.5 rounded-full",
 					colorMap[variant ?? "default"],
 					color ? `bg-${color}` : "",
-					indicatorClassName
+					indicatorClassName,
 				)}
 			/>
 			{children}

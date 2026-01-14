@@ -91,7 +91,7 @@ export function DeleteDialogHeader({
 				aria-hidden="true"
 				className={cn(
 					"flex size-9 shrink-0 items-center justify-center rounded-full border",
-					iconContainerClassName
+					iconContainerClassName,
 				)}
 			>
 				{icon ?? <CircleAlertIcon className="opacity-80" size={16} />}

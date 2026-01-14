@@ -4,7 +4,7 @@ import type {
 } from "@vakansia/schemas";
 
 export async function updateMember(
-	input: UpdateMemberInputType
+	input: UpdateMemberInputType,
 ): Promise<UpdateMemberOutputType> {
 	console.log(`${updateMember.name} service`);
 	console.log("Input:", input);

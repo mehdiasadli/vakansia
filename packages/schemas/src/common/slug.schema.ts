@@ -12,5 +12,5 @@ export const slugSchema = z
 	.regex(SLUG_REGEX, "ORGANIZATION_SLUG_INVALID")
 	.refine(
 		(slug) => !INVALID_ORGANIZATION_SLUGS.some((regex) => regex.test(slug)),
-		"ORGANIZATION_SLUG_RESERVED"
+		"ORGANIZATION_SLUG_RESERVED",
 	);

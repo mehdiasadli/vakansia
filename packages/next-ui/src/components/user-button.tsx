@@ -30,13 +30,13 @@ export function UserButton<U extends UserAvatarUser>({
 			<div
 				className={cn(
 					"me-0.5 flex aspect-square h-full p-1.5",
-					containerClassName
+					containerClassName,
 				)}
 			>
 				<UserAvatar
 					imageClassName={cn(
 						"h-auto w-full rounded-full",
-						userAvatarProps?.imageClassName
+						userAvatarProps?.imageClassName,
 					)}
 					user={user}
 					{...userAvatarProps}

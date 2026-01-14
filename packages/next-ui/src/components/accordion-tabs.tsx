@@ -49,7 +49,7 @@ export function AccordionTabs({
 				<AccordionItem
 					className={cn(
 						"rounded-md border bg-background px-4 py-1 outline-none last:border-b has-focus-visible:border-ring has-focus-visible:ring-[3px] has-focus-visible:ring-ring/50",
-						itemClassName
+						itemClassName,
 					)}
 					key={tab.id ?? String(tab.title)}
 					value={tab.id ?? String(tab.title)}
@@ -58,7 +58,7 @@ export function AccordionTabs({
 					<AccordionTrigger
 						className={cn(
 							"justify-start gap-3 py-2 text-[15px] leading-6 hover:no-underline focus-visible:ring-0 [&>svg]:-order-1",
-							triggerClassName
+							triggerClassName,
 						)}
 						{...triggerProps}
 					>

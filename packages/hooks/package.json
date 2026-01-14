@@ -1,29 +1,30 @@
 {
-  "name": "@vakansia/hooks",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "exports": {
-    ".": "./src/index.ts",
-    "./*": "./src/*.ts"
-  },
-  "devDependencies": {
-    "@vakansia/config": "workspace:*",
-    "@types/react": "catalog:react",
-    "@types/react-dom": "catalog:react"
-  },
-  "dependencies": {
-    "@vakansia/app": "workspace:*",
-    "@vakansia/env": "workspace:*",
-    "@vakansia/schemas": "workspace:*"
-  },
-  "peerDependencies": {
-    "typescript": "catalog:",
-    "react": "catalog:react",
-    "react-dom": "catalog:react"
-  },
-  "scripts": {
-    "check": "biome check --write .",
-    "check-types": "turbo check-types"
-  }
+	"name": "@vakansia/hooks",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts",
+		"./*": "./src/*.ts"
+	},
+	"devDependencies": {
+		"@vakansia/config": "workspace:*",
+		"@types/react": "catalog:react",
+		"@types/react-dom": "catalog:react"
+	},
+	"dependencies": {
+		"@vakansia/app": "workspace:*",
+		"@vakansia/env": "workspace:*",
+		"@vakansia/schemas": "workspace:*"
+	},
+	"peerDependencies": {
+		"typescript": "catalog:",
+		"react": "catalog:react",
+		"react-dom": "catalog:react"
+	},
+	"scripts": {
+		"check": "biome check --write .",
+		"check:ci": "biome ci .",
+		"check-types": "tsc -b"
+	}
 }

@@ -47,7 +47,7 @@ export function LoadingButton({
 			className={cn(
 				className,
 				isLoading &&
-					`${cursorOnLoading && `cursor-${cursorOnLoading}`} ${classNameOnLoading}`
+					`${cursorOnLoading && `cursor-${cursorOnLoading}`} ${classNameOnLoading}`,
 			)}
 			disabled={isLoading && disableOnLoading ? true : props.disabled}
 		>

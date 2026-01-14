@@ -49,7 +49,7 @@ function joinWords(words: string[], to: Case): string {
 		case "camel":
 			return normalized
 				.map((word, i) =>
-					i === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1)
+					i === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1),
 				)
 				.join("");
 		case "pascal":
@@ -67,7 +67,7 @@ function joinWords(words: string[], to: Case): string {
 		case "capital":
 			return normalized
 				.map((word, i) =>
-					i === 0 ? word.charAt(0).toUpperCase() + word.slice(1) : word
+					i === 0 ? word.charAt(0).toUpperCase() + word.slice(1) : word,
 				)
 				.join(" ");
 		case "lower":
@@ -140,7 +140,7 @@ export function toCase(to: Case) {
 export function formatEnumValue(
 	value: string,
 	to: Case = "capital",
-	from: Case = "snake"
+	from: Case = "snake",
 ) {
 	return formatCase(value, from, to);
 }

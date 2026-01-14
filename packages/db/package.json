@@ -1,33 +1,35 @@
 {
-  "name": "@vakansia/db",
-  "type": "module",
-  "exports": {
-    ".": {
-      "default": "./src/index.ts"
-    },
-    "./*": {
-      "default": "./src/*.ts"
-    }
-  },
-  "scripts": {
-    "db:push": "prisma db push",
-    "db:generate": "prisma generate",
-    "db:migrate": "prisma migrate dev",
-    "db:studio": "prisma studio"
-  },
-  "dependencies": {
-    "@prisma/adapter-pg": "catalog:db",
-    "@prisma/client": "catalog:db",
-    "@vakansia/env": "workspace:*",
-    "dotenv": "catalog:",
-    "pg": "catalog:db",
-    "prisma-zod-generator": "^2.1.2",
-    "zod": "catalog:"
-  },
-  "devDependencies": {
-    "@types/pg": "catalog:db",
-    "@vakansia/config": "workspace:*",
-    "prisma": "catalog:db",
-    "typescript": "catalog:"
-  }
+	"name": "@vakansia/db",
+	"type": "module",
+	"exports": {
+		".": {
+			"default": "./src/index.ts"
+		},
+		"./*": {
+			"default": "./src/*.ts"
+		}
+	},
+	"scripts": {
+		"db:push": "prisma db push",
+		"db:generate": "prisma generate",
+		"db:migrate": "prisma migrate dev",
+		"db:studio": "prisma studio",
+		"check": "biome check --write .",
+		"check:ci": "biome ci ."
+	},
+	"dependencies": {
+		"@prisma/adapter-pg": "catalog:db",
+		"@prisma/client": "catalog:db",
+		"@vakansia/env": "workspace:*",
+		"dotenv": "catalog:",
+		"pg": "catalog:db",
+		"prisma-zod-generator": "^2.1.2",
+		"zod": "catalog:"
+	},
+	"devDependencies": {
+		"@types/pg": "catalog:db",
+		"@vakansia/config": "workspace:*",
+		"prisma": "catalog:db",
+		"typescript": "catalog:"
+	}
 }

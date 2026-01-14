@@ -37,7 +37,7 @@ export function CheckboxCard({
 		<div
 			className={cn(
 				"relative flex w-full items-start gap-2 rounded-md border border-input p-4 shadow-xs outline-none has-data-[state=checked]:border-primary/50",
-				containerClassName
+				containerClassName,
 			)}
 		>
 			<Checkbox
@@ -49,7 +49,7 @@ export function CheckboxCard({
 			<div
 				className={cn(
 					"flex grow items-center gap-3",
-					checkboxContainerClassName
+					checkboxContainerClassName,
 				)}
 			>
 				{icon}
@@ -62,7 +62,7 @@ export function CheckboxCard({
 								<span
 									className={cn(
 										"font-normal text-muted-foreground text-xs leading-[inherit]",
-										sublabelClassName
+										sublabelClassName,
 									)}
 								>
 									{sublabel}
@@ -75,7 +75,7 @@ export function CheckboxCard({
 							aria-describedby={`${id}-description`}
 							className={cn(
 								"text-muted-foreground text-xs",
-								descriptionClassName
+								descriptionClassName,
 							)}
 							id={`${id}-description`}
 						>

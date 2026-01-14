@@ -1,24 +1,25 @@
 {
-  "name": "@vakansia/lib",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "exports": {
-    ".": "./src/index.ts",
-    "./*": "./src/*.ts"
-  },
-  "devDependencies": {
-    "@vakansia/config": "workspace:*"
-  },
-  "dependencies": {
-    "@vakansia/app": "workspace:*",
-    "zod": "catalog:"
-  },
-  "peerDependencies": {
-    "typescript": "catalog:"
-  },
-  "scripts": {
-    "check": "biome check --write .",
-    "check-types": "turbo check-types"
-  }
+	"name": "@vakansia/lib",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts",
+		"./*": "./src/*.ts"
+	},
+	"devDependencies": {
+		"@vakansia/config": "workspace:*"
+	},
+	"dependencies": {
+		"@vakansia/app": "workspace:*",
+		"zod": "catalog:"
+	},
+	"peerDependencies": {
+		"typescript": "catalog:"
+	},
+	"scripts": {
+		"check": "biome check --write .",
+		"check:ci": "biome ci .",
+		"check-types": "tsc -b"
+	}
 }

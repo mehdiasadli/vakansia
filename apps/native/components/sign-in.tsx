@@ -33,7 +33,7 @@ function SignIn() {
 				onFinished() {
 					setIsLoading(false);
 				},
-			}
+			},
 		);
 	}
 

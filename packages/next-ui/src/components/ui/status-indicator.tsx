@@ -51,14 +51,14 @@ export function StatusIndicator({
 		"relative inline-flex rounded-full",
 		sizeClasses.ping,
 		colors.dot,
-		pingClassName
+		pingClassName,
 	);
 
 	const animatedPingClasses = cn(
 		"absolute inline-flex animate-ping rounded-full opacity-75",
 		sizeClasses.ping,
 		colors.dot,
-		pingClassName
+		pingClassName,
 	);
 
 	return (
@@ -71,7 +71,7 @@ export function StatusIndicator({
 				<p
 					className={cn(
 						"text-slate-700 text-sm dark:text-slate-300",
-						labelClassName
+						labelClassName,
 					)}
 				>
 					{label}

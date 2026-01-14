@@ -63,7 +63,7 @@ interface DropdownButtonProps
 	renderMenuItem?: (
 		option: DropdownButtonOption,
 		isSelected: boolean,
-		index: number
+		index: number,
 	) => React.ReactNode;
 
 	menuItemContainerClassName?: string;
@@ -99,13 +99,13 @@ export function DropdownButton({
 		<div
 			className={cn(
 				"inline-flex divide-x divide-primary-foreground/30 rounded-md shadow-xs rtl:space-x-reverse",
-				containerClassName
+				containerClassName,
 			)}
 		>
 			<LoadingButton
 				className={cn(
 					"rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10",
-					className
+					className,
 				)}
 				{...props}
 			>
@@ -116,14 +116,14 @@ export function DropdownButton({
 					{...menuTriggerProps}
 					className={cn(
 						"rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10",
-						menuTriggerClassName
+						menuTriggerClassName,
 					)}
 					render={
 						<Button
 							aria-label="Options"
 							className={cn(
 								"rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10",
-								menuButtonClassName
+								menuButtonClassName,
 							)}
 							{...menuButtonProps}
 							size="icon"
@@ -149,7 +149,7 @@ export function DropdownButton({
 							<DropdownMenuRadioItem
 								className={cn(
 									"items-start [&>span]:pt-1.5",
-									menuRadioItemClassName
+									menuRadioItemClassName,
 								)}
 								{...menuRadioItemProps}
 								key={option.label}
@@ -158,14 +158,14 @@ export function DropdownButton({
 								<div
 									className={cn(
 										"flex flex-col gap-1",
-										menuItemContainerClassName
+										menuItemContainerClassName,
 									)}
 								>
 									{renderMenuItem ? (
 										renderMenuItem(
 											option,
 											String(index) === selectedIndex,
-											index
+											index,
 										)
 									) : (
 										<>
@@ -177,7 +177,7 @@ export function DropdownButton({
 											<span
 												className={cn(
 													"text-muted-foreground text-xs",
-													descriptionClassName
+													descriptionClassName,
 												)}
 											>
 												{option.description}

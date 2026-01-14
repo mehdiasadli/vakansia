@@ -12,7 +12,7 @@ export const RegisterInputSchema = z
 			name: true,
 			email: true,
 			username: true,
-		}).shape
+		}).shape,
 	)
 	.refine((data) => data.password === data.confirmPassword, {
 		error: "AUTH_PASSWORD_MISMATCH",
