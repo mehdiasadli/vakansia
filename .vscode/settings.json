@@ -19,6 +19,7 @@
   "files.associations": {
     "templates/**/*.ts": "plaintext",
     "templates/**/*.tsx": "plaintext",
+    "*.json": "jsonc"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "typescript.tsdk": "node_modules/typescript/lib",
