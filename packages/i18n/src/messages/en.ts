@@ -199,11 +199,11 @@ export const en = {
 			success: "Check your email for reset instructions",
 		},
 		resetPassword: {
-			title: "Reset Password",
-			subtitle: "Enter your email to receive reset instructions",
-			submitButton: "Send Reset Link",
+			title: "Set New Password",
+			subtitle: "Enter your new password",
+			submitButton: "Reset Password",
 			backToLogin: "Back to sign in",
-			success: "Check your email for reset instructions",
+			success: "Password reset successfully",
 		},
 	},
 };
