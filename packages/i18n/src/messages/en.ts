@@ -283,13 +283,11 @@ export const en = {
 				confirmPassword: {
 					label: "Confirm Password",
 					placeholder: "Confirm your password",
+					validation: {
+						required: "Confirm password is required",
+						mismatch: "Passwords do not match",
+					},
 				},
-			},
-		},
-		login: {
-			title: "Sign In",
-			subtitle: "Welcome back! Please sign in to continue",
-			fields: {
 				rememberMe: {
 					label: "Remember me",
 					validation: {
@@ -297,6 +295,10 @@ export const en = {
 					},
 				},
 			},
+		},
+		login: {
+			title: "Sign In",
+			subtitle: "Welcome back! Please sign in to continue",
 			forgotPassword: "Forgot password?",
 			submitButton: "Sign In",
 			noAccount: "Don't have an account?",
