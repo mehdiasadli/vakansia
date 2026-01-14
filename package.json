@@ -147,7 +147,8 @@
 		"generate:schema": "bun run scripts/generators/generate-schema-folder.ts",
 		"generate:module": "bun run scripts/generators/generate-module.ts",
 		"generate:api": "bun run scripts/generators/generate-api.ts",
-		"generate:app": "bun run scripts/package-generators/generate-app.ts"
+		"generate:app": "bun run scripts/package-generators/generate-app.ts",
+		"dev:auth": "turbo -F auth dev"
 	},
 	"dependencies": {
 		"@vakansia/env": "workspace:*",

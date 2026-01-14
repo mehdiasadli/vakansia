@@ -1,0 +1,5 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "@vakansia/next-ui/index.css";
+
+@source "../../../packages/next-ui";
