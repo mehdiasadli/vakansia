@@ -3,5 +3,5 @@
 	"compilerOptions": {
 		"strictNullChecks": true
 	},
-	"exclude": ["templates", "templates/**"]
+	"exclude": ["templates", "**/templates/*"]
 }
