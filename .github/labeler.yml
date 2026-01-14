@@ -1,3 +1,88 @@
+# ============================================================================
+# APPS
+# ============================================================================
+
+'app: web':
+  - changed-files:
+    - any-glob-to-any-file: ['apps/web/**/*']
+
+'app: admin':
+  - changed-files:
+    - any-glob-to-any-file: ['apps/admin/**/*']
+
+'app: server':
+  - changed-files:
+    - any-glob-to-any-file: ['apps/server/**/*']
+
+'app: native':
+  - changed-files:
+    - any-glob-to-any-file: ['apps/native/**/*']
+
+'app: extension':
+  - changed-files:
+    - any-glob-to-any-file: ['apps/extension/**/*']
+
+'app: tui':
+  - changed-files:
+    - any-glob-to-any-file: ['apps/tui/**/*']
+
+# ============================================================================
+# PACKAGES
+# ============================================================================
+
+'pkg: api':
+  - changed-files:
+    - any-glob-to-any-file: ['packages/api/**/*']
+
+'pkg: auth':
+  - changed-files:
+    - any-glob-to-any-file: ['packages/auth/**/*']
+
+'pkg: cloudinary':
+  - changed-files:
+    - any-glob-to-any-file: ['packages/cloudinary/**/*']
+
+'pkg: config':
+  - changed-files:
+    - any-glob-to-any-file: ['packages/config/**/*']
+
+'pkg: db':
+  - changed-files:
+    - any-glob-to-any-file: ['packages/db/**/*']
+
+'pkg: env':
+  - changed-files:
+    - any-glob-to-any-file: ['packages/env/**/*']
+
+'pkg: logger':
+  - changed-files:
+    - any-glob-to-any-file: ['packages/logger/**/*']
+
+'pkg: i18n':
+  - changed-files:
+    - any-glob-to-any-file: ['packages/i18n/**/*', 'packages/next-i18n/**/*']
+
+'pkg: lib':
+  - changed-files:
+    - any-glob-to-any-file: ['packages/lib/**/*', 'packages/app/**/*']
+
+'pkg: schemas':
+  - changed-files:
+    - any-glob-to-any-file: ['packages/schemas/**/*']
+
+'pkg: ui':
+  - changed-files:
+    - any-glob-to-any-file: ['packages/next-ui/**/*', 'packages/next-map/**/*']
+
+'pkg: utils':
+  - changed-files:
+    - any-glob-to-any-file: ['packages/utils/**/*', 'packages/hooks/**/*']
+
+
+# ============================================================================
+# FEATURES
+# ============================================================================
+
 '📦 dependencies':
   - changed-files:
     - any-glob-to-any-file: ['package.json', 'bun.lockb', '**/package.json']
