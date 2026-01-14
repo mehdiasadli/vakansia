@@ -111,6 +111,154 @@ export const en = {
 	},
 
 	// ============================================================================
+	// MODELS - Database models related messages
+	// ============================================================================
+	enums: {
+		userRole: {
+			user: {
+				value: "user",
+				label: "User",
+				description: "A regular user of the platform",
+			},
+			moderator: {
+				value: "moderator",
+				label: "Moderator",
+				description: "A moderator of the platform",
+			},
+			admin: {
+				value: "admin",
+				label: "Admin",
+				description: "An admin of the platform",
+			},
+			owner: {
+				value: "owner",
+				label: "Owner",
+				description: "An owner of the platform",
+			},
+		},
+	},
+	models: {
+		user: {
+			name: "User",
+			errors: {
+				notFound: "User not found",
+				emailTaken: "This email is already registered",
+				usernameTaken: "This username is already registered",
+				phoneNumberTaken: "This phone number is already registered",
+				createFailed: "Failed to create user",
+				updateFailed: "Failed to update user",
+				deleteFailed: "Failed to delete user",
+				noUsers: "There are no users",
+			},
+			fields: {
+				name: {
+					name: "name",
+					label: "Name",
+					description: "The full name of the user",
+					placeholder: "Enter your name",
+					validation: {
+						required: "Name is required",
+						min: "Name must be at least {min} characters",
+						max: "Name must be at most {max} characters",
+					},
+				},
+				email: {
+					name: "email",
+					label: "Email",
+					description: "The email address of the user",
+					placeholder: "Enter your email",
+					validation: {
+						required: "Email is required",
+						email: "Email must be a valid email address",
+					},
+				},
+				username: {
+					name: "username",
+					label: "Username",
+					placeholder: "Enter your username",
+					description: "The unique handle for the user profile",
+					validation: {
+						required: "Username is required",
+						min: "Username must be at least {min} characters",
+						max: "Username must be at most {max} characters",
+						regex:
+							"Username can only contain alphanumeric characters and underscores",
+					},
+				},
+				phoneNumber: {
+					name: "phoneNumber",
+					label: "Phone Number",
+					placeholder: "Enter your phone number",
+					description: "Contact phone number",
+					validation: {
+						regex: "Phone number must be a valid phone number",
+					},
+				},
+				role: {
+					name: "role",
+					label: "Role",
+					placeholder: "Select a role",
+					description: "The role of the user",
+					validation: {
+						required: "Role is required",
+						invalid: "Invalid role selected",
+					},
+				},
+				image: {
+					name: "image",
+					label: "Profile Picture",
+					placeholder: "Upload your profile picture",
+					description: "URL to the user's avatar",
+					validation: {
+						url: "Profile picture must be a valid URL",
+					},
+				},
+				// Boolean flags and status fields
+				emailVerified: {
+					name: "emailVerified",
+					label: "Email Verified",
+					description: "Status of email verification",
+				},
+				twoFactorEnabled: {
+					name: "twoFactorEnabled",
+					label: "2FA Enabled",
+					description: "Whether two-factor authentication is active",
+				},
+				banned: {
+					name: "banned",
+					label: "Banned",
+					description: "Whether the user is currently banned",
+				},
+				banReason: {
+					name: "banReason",
+					label: "Ban Reason",
+					placeholder: "Reason for banning the user",
+					description: "Explanation for why the user was banned",
+					validation: {
+						max: "Reason must be at most {max} characters",
+					},
+				},
+				banExpires: {
+					name: "banExpires",
+					label: "Ban Expiration",
+					description: "Date when the ban will be lifted",
+				},
+				// System timestamps
+				createdAt: {
+					name: "createdAt",
+					label: "Joined At",
+					description: "Date when the user account was created",
+				},
+				updatedAt: {
+					name: "updatedAt",
+					label: "Last Updated",
+					description: "Date when the user account was last modified",
+				},
+			},
+		},
+	},
+
+	// ============================================================================
 	// AUTH - Authentication & Authorization
 	// ============================================================================
 	auth: {
@@ -120,13 +268,6 @@ export const en = {
 			privacyLink: "Privacy Policy",
 
 			fields: {
-				email: {
-					label: "Email",
-					placeholder: "Enter your email",
-					validation: {
-						required: "Email is required",
-					},
-				},
 				password: {
 					label: "Password",
 					placeholder: "Enter your password",
@@ -142,13 +283,11 @@ export const en = {
 				confirmPassword: {
 					label: "Confirm Password",
 					placeholder: "Confirm your password",
+					validation: {
+						required: "Confirm password is required",
+						mismatch: "Passwords do not match",
+					},
 				},
-			},
-		},
-		login: {
-			title: "Sign In",
-			subtitle: "Welcome back! Please sign in to continue",
-			fields: {
 				rememberMe: {
 					label: "Remember me",
 					validation: {
@@ -156,6 +295,10 @@ export const en = {
 					},
 				},
 			},
+		},
+		login: {
+			title: "Sign In",
+			subtitle: "Welcome back! Please sign in to continue",
 			forgotPassword: "Forgot password?",
 			submitButton: "Sign In",
 			noAccount: "Don't have an account?",

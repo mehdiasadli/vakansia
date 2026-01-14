@@ -6,25 +6,21 @@ enum UserRole {
 }
 
 model User {
-  /// @zod.uuid("USER_ID_INVALID")
   id                  String              @id @default(uuid())
-  /// @zod.min(1, "USER_NAME_MIN_LENGTH").max(50, "USER_NAME_MAX_LENGTH")
+  /// @zod.min(1, "models.user.fields.name.validation.min").max(50, "models.user.fields.name.validation.max")
   name                String
-  /// @zod.email("USER_EMAIL_INVALID")
+  /// @zod.email("models.user.fields.email.validation.email")
   email               String
-  /// @zod.boolean("USER_EMAIL_VERIFIED_INVALID")
   emailVerified       Boolean             @default(false)
-  /// @zod.url("USER_IMAGE_INVALID")
+  /// @zod.url("models.user.fields.image.validation.url")
   image               String?
-  /// @zod.boolean("USER_TWO_FACTOR_ENABLED_INVALID")
   twoFactorEnabled    Boolean?            @default(false)
-  /// @zod.string("USER_PHONE_NUMBER_INVALID")
+  /// @zod.string("models.user.fields.phoneNumber.validation.regex")
   phoneNumber         String?
-  /// @zod.boolean("USER_PHONE_NUMBER_VERIFIED_INVALID")
   phoneNumberVerified Boolean?
   role                UserRole            @default(user)
-  /// @zod.boolean("USER_BANNED_INVALID")
   banned              Boolean?            @default(false)
+  /// @zod.string("models.user.fields.banReason.validation.string").max(255, "models.user.fields.banReason.validation.max")
   banReason           String?
   banExpires          DateTime?
   username            String

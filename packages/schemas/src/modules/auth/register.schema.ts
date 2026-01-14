@@ -1,11 +1,16 @@
 import z from "zod";
 import { UserSchema } from "../../db/schemas";
+import {
+	ConfirmPasswordSchema,
+	PasswordSchema,
+	RememberMeSchema,
+} from "./_common.schema";
 
 export const RegisterInputSchema = z
 	.object({
-		rememberMe: z.boolean().optional(),
-		password: z.string().min(1, "Password is required"),
-		confirmPassword: z.string().min(1, "Confirm password is required"),
+		rememberMe: RememberMeSchema,
+		password: PasswordSchema,
+		confirmPassword: ConfirmPasswordSchema,
 	})
 	.extend(
 		UserSchema.pick({
@@ -15,8 +20,14 @@ export const RegisterInputSchema = z
 		}).shape,
 	)
 	.refine((data) => data.password === data.confirmPassword, {
-		error: "AUTH_PASSWORD_MISMATCH",
+		error: "auth.common.fields.confirmPassword.validation.mismatch",
 		path: ["confirmPassword"],
 	});
 
+export const RegisterOutputSchema = z.object({
+	token: z.string().nullable(),
+	user: UserSchema,
+});
+
 export type RegisterInputType = z.infer<typeof RegisterInputSchema>;
+export type RegisterOutputType = z.infer<typeof RegisterOutputSchema>;

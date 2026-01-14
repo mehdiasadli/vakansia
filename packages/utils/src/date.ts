@@ -1,9 +1,11 @@
 import type { Locale } from "@vakansia/i18n";
 import { format } from "date-fns";
-import { az } from "date-fns/locale";
 
+// import { az } from "date-fns/locale";
+
+// TODO: Add Azerbaijani locale support for date-fns
 const LOCALES = {
-	az,
+	// az,
 };
 
 type DayFormat =
