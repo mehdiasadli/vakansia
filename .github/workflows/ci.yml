@@ -58,7 +58,7 @@ jobs:
         timeout-minutes: 5
 
       - name: Lint
-        run: bun run check
+        run: bunx biome ci .
         timeout-minutes: 3
 
       - name: Build
