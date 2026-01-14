@@ -20,8 +20,8 @@
 		"check:ci": {
 			"dependsOn": ["^check", "db:generate", "typegen"]
 		},
-		"check-types": {
-			"dependsOn": ["^check-types", "db:generate", "typegen"],
+		"check:types": {
+			"dependsOn": ["^check:types", "db:generate", "typegen"],
 			"inputs": ["$TURBO_DEFAULT$", ".env*"]
 		},
 		"dev": {
